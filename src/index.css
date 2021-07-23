@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oi&display=swap");
+
+@font-face {
+  font-family: "nove";
+  src: url(/src/fonts/Nove.ttf);
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* header.App-header {
+  
+} */
+navigation {
+  display: flex;
+}
+
+#nav-logo {
+  width: 5em;
+  margin-right: 1rem;
+}
+
+.dateHeading {
+  /* font-family: "IBM Plex Sans", sans-serif; */
+  font-family: "nove";
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #000000;
+  padding: 5px 0;
+  margin: 0;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+.locationHeading {
+  /* font-family: "IBM Plex Sans", sans-serif; */
+  font-family: "nove";
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #e6cd12;
+  padding: 5px 0;
+  margin: 0;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+nav.navRight {
+  width: 100%;
+  /* background: linear-gradient(#f9b16ef3, #e6898c, #ea6d7b); */
+  /* background: linear-gradient(#f9b16ef3, #ea6d7b); */
+
+  /* background: rgb(249, 177, 110);
+  background: linear-gradient(
+    rgba(249, 177, 110, 1) 50%,
+    rgba(234, 109, 123, 1) 99%
+  ); */
+  background: rgba(234, 109, 123, 1);
+  border: 1px, solid, black;
+  padding: 5px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-flex-flow: row wrap;
+}
+
+nav ul {
+  list-style: none;
+  min-width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav li {
+  color: white;
+  display: block;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+nav li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  /* font-family: "Oi", cursive; */
+  font-family: "nove";
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 5px 0 #000;
+}
+
+/* NAVBAR END */
+
+/* COVER START */
+
+section.imgBox {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.imgBox:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #eea057, transparent);
+  z-index: 10000;
+}
+
+section.imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section.imgBox h2 {
+  position: absolute;
+  color: #fff;
+  font-size: 10vh;
+  bottom: 400px;
+  font-family: "Oi", cursive;
+  font-weight: 100;
+  letter-spacing: 2rem;
+  color: white;
+  text-shadow: -5px -5px 0 #000, 5px -5px 0 #000, -5px 20px 0 #000,
+    5px 5px 0 #000;
+}
+
+/* animation for scss heading */
+
+/* .wave {
+  transform: translate(-50%, -50%);
+  animation-name: wave;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+}
+
+@for $i from 1 through 4 {
+  .wave:nth-of-type(#{$i}) {
+    animation-duration: 2s;
+    animation-delay: 0.8s - ($i / 4);
+  }
+}
+
+@keyframes wave {
+  40%,
+  50% {
+    transform: translate(-50%, -65%) scale(1.05);
+  }
+
+  0%,
+  90%,
+  100% {
+    transform: translate(-50%, -45%) scale(0.95);
+  }
+} */
+
+.content {
+  position: relative;
+  padding: 100px;
+  background: linear-gradient(#f9b16ef3, #e6898c);
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, #eea057, transparent);
+  z-index: 10000;
+}
+
+.homepage-content section h2 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  color: #20496a;
+}
+.homepage-content section p {
+  font-size: 1.2rem;
+  color: #20496a;
+}
+
+/* COVER END */
+
+/* TICKET PAGE */
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100px 100px 40px;
+}
+
+.headerJumbo {
+  grid-column: span 12;
+}
+
+.menu {
+  grid-column: span 4;
+}
+
+.content {
+  grid-column: span 8;
+}
+
+.footer {
+  grid-column: span 12;
+}
+
+@media screen and (max-width: 480px) {
+  .headerJumbo {
+    grid-column: span 6;
+  }
+
+  .menu {
+    grid-row: 1;
+    grid-column: span 6;
+  }
+
+  .content {
+    grid-column: span 12;
+  }
+}
+
+/* TICKETPAGE END */

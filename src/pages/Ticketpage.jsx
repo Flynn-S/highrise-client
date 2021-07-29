@@ -6,7 +6,7 @@ import "../index.css";
 const Ticketpage = (history, location, match) => {
   return (
     <div class="wrapper">
-      <header class="headerJumbo">
+      <header class="ticket-header">
         <section>
           <h1>Highrise Festival - 3 Day festival</h1>
           <date>Friday 13th - Sunday the 15th August</date>

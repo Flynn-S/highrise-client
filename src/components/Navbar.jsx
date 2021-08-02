@@ -26,7 +26,7 @@ export default function Navbar({ links, history }) {
         </div>
         <div className="nav-mid">
           <h6 className="dateHeading">AUGUST 25TH - 27TH 2022</h6>
-          <h6 className="locationHeading">UNDISCLOSED LOCATION, TBA</h6>
+          <span>UNDISCLOSED LOCATION, TBA</span>
         </div>
 
         <ul className="menu">
@@ -47,14 +47,15 @@ export default function Navbar({ links, history }) {
                 border: "1px solid black",
               }}
             >
-              Cart
+              <span id="cart-label">Cart</span>
             </Button>
           </li>
-          <input type="checkbox" className="menu-toggle" />
-          <div class="hamburger">
-            <div></div>
-          </div>
         </ul>
+
+        <input type="checkbox" className="menu-toggle" />
+        <div class="hamburger">
+          <div></div>
+        </div>
       </nav>
     </navigation>
   );

@@ -34,9 +34,8 @@ code {
 } */
 navigation {
   /* display: flex; */
-  min-height: 10vh;
-  max-height: 10vh;
-  width: 100%;
+  width: 100vw;
+  height: 50px;
   position: fixed;
   top: 0;
   left: 0;
@@ -45,6 +44,7 @@ navigation {
 
 nav.menu-wrapper {
   width: 100%;
+  min-height: 100%;
   /* background: linear-gradient(#f9b16ef3, #e6898c, #ea6d7b); */
   /* background: linear-gradient(#f9b16ef3, #ea6d7b); */
 
@@ -54,32 +54,83 @@ nav.menu-wrapper {
     rgba(234, 109, 123, 1) 99%
   ); */
   background: var(--primary-color);
-  border: 1px, solid, black;
-  padding: 5px 10%;
+  /* padding: 5px 10%; */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  white-space: nowrap;
   overflow: hidden;
   flex-flow: row;
   -webkit-flex-flow: row wrap;
+  padding: 0 6%;
+  position: relative;
 }
 
-nav.menu {
+.brand-logo {
+  height: 90px;
+  margin: 5px 10px;
 }
 
-nav ul {
+#nav-logo {
+  height: 100%;
+  /* margin: 5px 10px; */
+}
+
+.nav-mid {
+  flex: 1;
+  /* transition: all 0.8s ease-in-out; */
+}
+
+.nav-mid h2 {
+  white-space: nowrap;
+  /* overflow: hidden; */
+}
+.nav-mid h6.dateHeading {
+  font-family: "nove";
+  font-weight: 400;
+  font-size: 1rem;
+  color: #000000;
+  padding: 5px 0;
+  margin: 0;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+.nav-mid span {
+  font-family: "nove";
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 5px 0;
+  margin: 0;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    2px 1px 0 #000;
+  color: var(--secondary-color);
+}
+
+/* .locationHeading {
+  font-family: "nove";
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  padding: 5px 0;
+  margin: 0;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    2px 1px 0 #000;
+} */
+
+nav ul.menu {
   list-style: none;
-  min-width: 50%;
+  /* min-width: 50%; */
   display: flex;
   justify-content: space-between;
+  flex: 7;
+  margin-bottom: 0;
 }
 
 nav li {
   color: white;
   display: block;
-  /* margin-left: 1rem;
-  margin-right: 1rem; */
-  padding: 1rem;
+  margin: 0 1%;
 }
 
 nav li a {
@@ -96,42 +147,48 @@ nav li a:hover {
   text-decoration: none;
 }
 
-/* Navbar hamburger */
+/* navbar hambuger */
+
 .menu-wrapper input.menu-toggle {
   position: absolute;
-  top: 15px;
-  right: 0;
+  top: 31px;
+  right: 38px;
   z-index: 2;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   opacity: 0;
 }
 
 .menu-wrapper .hamburger {
   position: absolute;
-  top: 15px;
-  right: 0;
+  top: 31px;
+  right: 38px;
   z-index: 1;
-  width: 60px;
-  height: 60px;
-  padding: 1rem;
+  width: 38px;
+  height: 38px;
+  padding: 0.5rem;
   background: var(--secondary-color);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
+  border-radius: 10%;
+  border: 1px solid black;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .menu-wrapper .hamburger > div {
   position: relative;
   width: 100%;
-  height: 3px;
-  border-radius: 3px;
+  height: 2px;
+  border-radius: 10%;
   background-color: #000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s ease-in-out;
+
+  transition: all 0.4s cubic-bezier(0.48, 1.95, 0.32, 1.89);
 }
 
 .menu-wrapper .hamburger > div::before,
@@ -139,58 +196,28 @@ nav li a:hover {
   content: "";
   position: absolute;
   z-index: 1;
-  top: -10px;
+  top: -8px;
   width: 100%;
-  height: 3px;
-  border-radius: 3px;
+  height: 2px;
+  border-radius: 10%;
   background: inherit;
+
+  /* transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 .menu-wrapper .hamburger > div::after {
-  top: 10px;
+  top: 8px;
 }
 
 /* toggle animation */
 .menu-wrapper input.menu-toggle:checked + .hamburger > div {
-  transform: rotate(315deg);
+  transform: rotate(135deg);
 }
 /* tranform to X */
 .menu-wrapper input.menu-toggle:checked + .hamburger > div::before,
 .menu-wrapper input.menu-toggle:checked + .hamburger > div::after {
   top: 0;
   transform: rotate(90deg);
-}
-
-#nav-logo {
-  width: 5em;
-  margin-right: 1rem;
-}
-
-.nav-mid .dateHeading,
-.nav-mid .locationHeading {
-  white-space: nowrap;
-  overflow: hidden;
-}
-.dateHeading {
-  font-family: "nove";
-  font-weight: 400;
-  font-size: 1.2rem;
-  color: #000000;
-  padding: 5px 0;
-  margin: 0;
-  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
-    1px 1px 0 #fff;
-}
-
-.locationHeading {
-  font-family: "nove";
-  font-weight: 400;
-  font-size: 1.2rem;
-  color: var(--secondary-color);
-  padding: 5px 0;
-  margin: 0;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
 }
 
 /* NAVBAR END */
@@ -328,19 +355,77 @@ section.imgBox h2 {
   grid-column: span 12;
 }
 
-@media screen and (max-width: 480px) {
-  .ticket-header {
-    grid-column: span 6;
-  }
+/* TICKETPAGE END */
 
-  .menu {
+/* .menu {
     grid-row: 1;
     grid-column: span 6;
-  }
+  } */
 
-  .content {
+/* .content {
     grid-column: span 12;
   }
 }
 
-/* TICKETPAGE END */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+} */
+
+@media screen and (max-width: 1325px) {
+  /* nav ul.menu {
+    display: none;
+  } */
+
+  .nav-mid {
+    display: none;
+  }
+
+  .menu-wrapper input {
+    display: block;
+  }
+
+  .menu-wrapper .hamburger,
+  .menu-wrapper .hamburger > div {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1190px) {
+  nav ul.menu li button span#cart-label {
+    display: none;
+  }
+  nav ul.menu li button {
+    padding: 8px 0px;
+    min-width: 40px;
+  }
+  nav ul.menu li button.MuiButton-startIcon {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+}
+
+@media screen and (max-width: 1177px) {
+  nav ul.menu {
+    display: none;
+  }
+
+  .nav-mid {
+    display: block;
+  }
+
+  nav.menu-wrapper {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 521px) {
+  .nav-mid {
+    text-align: left;
+  }
+
+  .ticket-header {
+    grid-column: span 6;
+  }
+}

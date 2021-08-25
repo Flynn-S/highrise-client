@@ -8,7 +8,6 @@ import "./App.css";
 import Homepage from "./pages/Homepage";
 import Ticketpage from "./pages/Ticketpage";
 import Navbar from "./components/Navbar";
-import MusicPlayer from "./components/MusicPlayer";
 
 // const Homepage = React.lazy(() => import("./pages/Homepage"));
 
@@ -34,12 +33,12 @@ function App() {
         <Switch location={location} key={location.pathname}>
           <Route
             exact
-            path="/Home"
+            path="/"
             render={(routerProps) => <Homepage {...routerProps} />}
           />
           <Route
             exact
-            path="/Tickets"
+            path="/tickets"
             render={(routerProps) => <Ticketpage {...routerProps} />}
           />
         </Switch>

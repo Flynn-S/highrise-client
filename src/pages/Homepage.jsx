@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 //components
 import Cover from "../components/Cover";
 import Section2 from "../components/Section2";
-import MusicPlayer from "../components/MusicPlayer";
 
 export default class Homepage extends Component {
   state = {
@@ -16,7 +15,6 @@ export default class Homepage extends Component {
       <>
         <Cover />
         <Section2 />
-        <MusicPlayer />
       </>
     );
   }

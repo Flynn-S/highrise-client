@@ -12,6 +12,7 @@ import "../index.css";
 
 export default function Navbar({ links, history }) {
   const [isOpen, setOpen] = useState(false);
+  // const [showNav, setChecked] = useState(false)
   return (
     <navigation>
       <nav className="menu-wrapper">
@@ -29,7 +30,7 @@ export default function Navbar({ links, history }) {
           <span>UNDISCLOSED LOCATION, TBA</span>
         </div>
 
-        <ul className="menu">
+        <ul className={`menu ${isOpen ? "showNav" : ""}`}>
           {links.map((link) => (
             <li>
               <Link to={`${link}`}>{link}</Link>
@@ -52,7 +53,11 @@ export default function Navbar({ links, history }) {
           </li>
         </ul>
 
-        <input type="checkbox" className="menu-toggle" />
+        <input
+          type="checkbox"
+          className="menu-toggle"
+          onClick={() => setOpen(!isOpen)}
+        />
         <div class="hamburger">
           <div></div>
         </div>

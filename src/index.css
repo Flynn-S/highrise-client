@@ -10,7 +10,7 @@
 }
 
 :root {
-  --primary-color: rgba(234, 109, 123, 1);
+  --primary-color: rgb(234, 109, 124);
   --secondary-color: #e6cd12;
 }
 
@@ -35,7 +35,7 @@ code {
 navigation {
   /* display: flex; */
   width: 100vw;
-  height: 50px;
+  height: 100px;
   position: fixed;
   top: 0;
   left: 0;
@@ -44,7 +44,7 @@ navigation {
 
 nav.menu-wrapper {
   width: 100%;
-  min-height: 100%;
+  max-height: 100%;
   /* background: linear-gradient(#f9b16ef3, #e6898c, #ea6d7b); */
   /* background: linear-gradient(#f9b16ef3, #ea6d7b); */
 
@@ -61,6 +61,7 @@ nav.menu-wrapper {
   white-space: nowrap;
   overflow: hidden;
   flex-flow: row;
+  flex-wrap: wrap;
   -webkit-flex-flow: row wrap;
   padding: 0 6%;
   position: relative;
@@ -117,6 +118,10 @@ nav.menu-wrapper {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     2px 1px 0 #000;
 } */
+
+nav ul.showNav {
+  display: flex;
+}
 
 nav ul.menu {
   list-style: none;
@@ -226,14 +231,14 @@ nav li a:hover {
 
 section.imgBox {
   position: relative;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   height: 100vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 9vh;
+  margin-top: 100px;
 }
 
 section.imgBox:before {
@@ -260,53 +265,21 @@ section.imgBox h2 {
   position: absolute;
   color: #fff;
   font-size: 10vh;
-  bottom: 400px;
+  bottom: 300px;
   font-family: "Oi", cursive;
   font-weight: 100;
   letter-spacing: 2rem;
-  color: white;
   text-shadow: -5px -5px 0 #000, 5px -5px 0 #000, -5px 20px 0 #000,
     5px 5px 0 #000;
 }
 
-/* animation for scss heading */
-
-/* .wave {
-  transform: translate(-50%, -50%);
-  animation-name: wave;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: black;
-}
-
-@for $i from 1 through 4 {
-  .wave:nth-of-type(#{$i}) {
-    animation-duration: 2s;
-    animation-delay: 0.8s - ($i / 4);
-  }
-}
-
-@keyframes wave {
-  40%,
-  50% {
-    transform: translate(-50%, -65%) scale(1.05);
-  }
-
-  0%,
-  90%,
-  100% {
-    transform: translate(-50%, -45%) scale(0.95);
-  }
-} */
-
-.content {
+.homepage-content {
   position: relative;
   padding: 100px;
   background: linear-gradient(#f9b16ef3, #e6898c);
 }
 
-.content::before {
+.homepage-content::before {
   content: "";
   position: absolute;
   top: 0;
@@ -330,24 +303,73 @@ section.imgBox h2 {
 /* COVER END */
 
 /* TICKET PAGE */
-.wrapper {
+.ticketpage-wrapper {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 100px 100px 40px;
+  grid-template-rows: 400px 100px 40px;
+  margin-top: 100px;
 }
 
-.ticket-header {
+.ticketpage-header {
   grid-column: span 12;
 }
 
-.ticket-header section {
-  grid-column: span 4;
+#hero-container {
+  background-image: url("/src/images/reggaeSundays.jpeg");
+  height: 400px;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-position-y: 60px;
+  position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.content {
+.bg-filter {
+  width: 100vw;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.071);
+  backdrop-filter: contrast(0.8) blur(4px);
+  -webkit-backdrop-filter: contrast(0.8) blur(4px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#hero-image {
+  height: 40%;
+  width: auto;
+  margin-right: 10px;
+  z-index: 1;
+}
+
+.hero-text {
+  z-index: 1;
+  font-family: "Inter", sans-serif;
+}
+
+.hero-text h1 {
+  font-weight: 800;
+}
+
+.hero-text p {
+  font-weight: 400;
+}
+
+.ticketpage-header section div.hero-text {
+  grid-column: span 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  margin-left: 10px;
+}
+
+.ticketpage-content {
   grid-column: span 8;
 }
 
@@ -385,14 +407,9 @@ section.imgBox h2 {
   .menu-wrapper input {
     display: block;
   }
-
-  .menu-wrapper .hamburger,
-  .menu-wrapper .hamburger > div {
-    display: flex;
-  }
 }
 
-@media screen and (max-width: 1190px) {
+/* @media screen and (max-width: 1190px) {
   nav ul.menu li button span#cart-label {
     display: none;
   }
@@ -404,11 +421,20 @@ section.imgBox h2 {
     margin-right: 0px !important;
     margin-left: 0px !important;
   }
-}
+} */
 
-@media screen and (max-width: 1177px) {
+@media screen and (max-width: 1100px) {
   nav ul.menu {
     display: none;
+    width: 200%;
+  }
+
+  nav ul.showNav {
+    display: flex;
+  }
+
+  nav ul.menu li a {
+    flex: 1;
   }
 
   .nav-mid {
@@ -418,6 +444,17 @@ section.imgBox h2 {
   nav.menu-wrapper {
     text-align: center;
   }
+
+  .menu-wrapper .hamburger,
+  .menu-wrapper .hamburger > div {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .menu-wrapper {
+    padding-left: 0% !important;
+  }
 }
 
 @media screen and (max-width: 521px) {
@@ -425,7 +462,22 @@ section.imgBox h2 {
     text-align: left;
   }
 
+  .menu-wrapper {
+    padding-left: 6% !important;
+    padding: 0 6%;
+  }
+
   .ticket-header {
     grid-column: span 6;
+  }
+
+  nav ul.menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  nav ul.showNav {
+    display: flex;
   }
 }

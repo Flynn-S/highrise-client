@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import "../index.css";
 
 export default function Section2() {

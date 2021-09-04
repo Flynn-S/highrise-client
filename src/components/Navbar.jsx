@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Button from "@material-ui/core/Button";
 
@@ -14,9 +14,9 @@ export default function Navbar({ links, history }) {
   const [isOpen, setOpen] = useState(false);
   // const [showNav, setChecked] = useState(false)
   return (
-    <navigation>
+    <div className="nav-container">
       <nav className="menu-wrapper">
-        <div class="brand-logo">
+        <div className="brand-logo">
           <a href="#">
             <img
               src="/images/logo(cropped).png"
@@ -33,7 +33,9 @@ export default function Navbar({ links, history }) {
         <ul className={`menu ${isOpen ? "showNav" : ""}`}>
           {links.map((link) => (
             <li>
-              <Link to={`${link}`}>{link}</Link>
+              <Link key={link} to={link !== "Home" ? link : "/"}>
+                {link}
+              </Link>
             </li>
           ))}
           <li>
@@ -44,7 +46,7 @@ export default function Navbar({ links, history }) {
               style={{
                 fontFamily: "nove",
                 color: "black",
-                background: "#e6cd12",
+                background: "#ffe415",
                 border: "1px solid black",
               }}
             >
@@ -58,10 +60,10 @@ export default function Navbar({ links, history }) {
           className="menu-toggle"
           onClick={() => setOpen(!isOpen)}
         />
-        <div class="hamburger">
+        <div className="hamburger">
           <div></div>
         </div>
       </nav>
-    </navigation>
+    </div>
   );
 }

@@ -10,8 +10,10 @@
 }
 
 :root {
-  --primary-color: rgb(234, 109, 124);
-  --secondary-color: #e6cd12;
+  --primary-color: #ea6d7c;
+  --secondary-color: #ffe415;
+
+  --tertiary-color: #eb9e6e;
 }
 
 body {
@@ -32,7 +34,7 @@ code {
 /* header.App-header {
   
 } */
-navigation {
+.nav-container {
   /* display: flex; */
   width: 100vw;
   height: 100px;
@@ -306,12 +308,17 @@ section.imgBox h2 {
 .ticketpage-wrapper {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 400px 100px 40px;
+  grid-template-rows: 400px 400px 200px;
   margin-top: 100px;
+  grid-template-areas:
+    "h h h h h h h h h h h h"
+    ". . c c c c c c c c . ."
+    ". f f f f f f f f f f .";
 }
 
 .ticketpage-header {
-  grid-column: span 12;
+  grid-area: h;
+  /* grid-column: 1/-1; */
 }
 
 #hero-container {
@@ -326,6 +333,7 @@ section.imgBox h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: -2;
 }
 
 .bg-filter {
@@ -337,7 +345,7 @@ section.imgBox h2 {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
 }
 
 #hero-image {
@@ -348,7 +356,7 @@ section.imgBox h2 {
 }
 
 .hero-text {
-  z-index: 1;
+  z-index: 0;
   font-family: "Inter", sans-serif;
 }
 
@@ -370,14 +378,126 @@ section.imgBox h2 {
 }
 
 .ticketpage-content {
-  grid-column: span 8;
+  grid-area: c;
+  /* grid-column: span 8;
+  grid-column-start: 2;
+  grid-column-end: 11; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.footer {
-  grid-column: span 12;
+section.ticketpage-content p {
+  color: black;
+  text-align: center;
+}
+
+.ticketpage-footer {
+  grid-area: f;
+  /* grid-column: 1/-1; */
 }
 
 /* TICKETPAGE END */
+
+/* -------- LINEUP --------- */
+
+.lineup-wrapper {
+  margin-top: 100px;
+}
+.lineup-background {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./images/background-lineup.svg");
+}
+.lineup-container {
+  padding-top: 4%;
+  margin-left: 20%;
+}
+
+.lineup-list {
+  list-style-type: none;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: "nove";
+  /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 5px 0 #000; */
+}
+
+/* -------- FAQs --------- */
+.faq-wrapper {
+  margin-top: 100px;
+  background-color: var(--tertiary-color);
+  background-repeat: repeat-y;
+  height: max-content;
+}
+
+.faq-background {
+  /* background-image: url(./images/blueBackground.jpeg); */
+  /* background-color:  rgba(112,208,204, 0.6); */
+  /* background-color: rgb(249,172,102); */
+  height: auto;
+  width: auto;
+  background-image: url("./images/shapes.svg");
+
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position-y: -150px;
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+}
+
+.MuiAccordionDetails-root {
+  padding: 20px 48px 45px;
+}
+
+.patterns-one {
+  background-image: url("./images/shapes.svg");
+  background-size: cover;
+  position: absolute;
+  /* width: 50px;
+  height: auto; */
+  height: 100vh;
+  width: 100vw;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.patterns-two {
+  background-image: url("./images/shapes.svg");
+  position: absolute;
+}
+
+.makeStyles-heading-7 {
+  font-size: 1.2375rem !important;
+  flex-basis: 100% !important;
+  font-weight: bold !important;
+  text-transform: uppercase;
+  /* text-decoration: overline; */
+}
+
+.MuiAccordion-root,
+.MuiAccordion-rounded {
+  background-color: black;
+}
+
+@media (min-width: 480px) {
+  .faq-list li h3 {
+    padding: 15px 25px;
+    font-size: 2.375rem;
+    line-height: 1.2;
+  }
+}
 
 /* .menu {
     grid-row: 1;

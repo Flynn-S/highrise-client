@@ -1,30 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 
 import "../index.css";
 import reggaeSundays from "../images/reggaeSundays.jpeg";
 
-const Ticketpage = (history, location, match) => {
+import EventHeader from "../components/EventHeader";
+import { getEvent } from "../services/events";
+
+const EventDetails = (history, location, match) => {
+  useEffect(() => {
+    getEvent();
+  });
   return (
     <div className="ticketpage-wrapper">
-      <header className="ticketpage-header">
-        <section id="hero-wrapper">
-          <div id="hero-container">
-            <div className="bg-filter"></div>
-            <img
-              id="hero-image"
-              src={reggaeSundays}
-              alt="Reggae Sundays event artwork"
-            />
-            <div className="hero-text">
-              <h1>HIGHRISE FESTIVAL: </h1>
-              <date>Friday 13th - Sunday the 15th August</date>
-              <p>Location, TBA</p>
-            </div>
-          </div>
-        </section>
-      </header>
-
       <section className="ticketpage-content">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
@@ -62,4 +50,4 @@ const Ticketpage = (history, location, match) => {
   );
 };
 
-export default withRouter(Ticketpage);
+export default withRouter(EventDetails);

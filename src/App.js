@@ -7,7 +7,10 @@ import RollerSpinner from "./components/RollerSpinner";
 import "./App.css";
 import Homepage from "./pages/Homepage";
 import Ticketpage from "./pages/Ticketpage";
+import FAQs from "./pages/FAQs";
+import Lineup from "./pages/Lineup";
 import Navbar from "./components/Navbar";
+import Events from "./pages/Events";
 
 // const Homepage = React.lazy(() => import("./pages/Homepage"));
 
@@ -21,7 +24,7 @@ function App() {
           "Home",
           "Line Up",
           "Travel",
-          "FAQ's",
+          "FAQs",
           "Events",
           "Account",
           "Contact",
@@ -35,6 +38,21 @@ function App() {
             exact
             path="/"
             render={(routerProps) => <Homepage {...routerProps} />}
+          />
+          <Route
+            exact
+            path="/FAQs"
+            render={(routerProps) => <FAQs {...routerProps} />}
+          />
+          <Route
+            exact
+            path="/Line up"
+            render={(routerProps) => <Lineup {...routerProps} />}
+          />
+          <Route
+            exact
+            path="/Events"
+            render={(routerProps) => <Events {...routerProps} />}
           />
           <Route
             exact

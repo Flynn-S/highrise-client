@@ -1,18 +1,10 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { gsap, Power3, Power1 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import styled from "styled-components";
 // import "./index.css";
 import "../index.css";
-
-// import coverBg from "../../images/coverBg.png";
-// import coverSkyBg from "../../images/coverSkyBg.png";
-// import highriseLogo from "../../images/highriseLogo.png";
-// import leftStack from "../../images/leftStack.png";
-// import rightStack from "../../images/rightStack.png";
-// import towerblocksMg from "../../images/towerblocksMg.png";
-// import trumpetFg from "../../images/trumpetFg.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,14 +97,6 @@ export default function Cover() {
 
   return (
     <section className="imgBox">
-      {/* <img src={coverBg} id="bg" alt="bg1"></img>
-        <img src={coverSkyBg} id="sky-bg" alt="bg2"></img>
-        <img src={leftStack} id="LS" alt="left speaker stack"></img>
-        <img src={rightStack} id="RS" alt="right speaker stack"></img>
-        <img src={towerblocksMg} id="mg" alt="towerblocks"></img>
-        <img src={trumpetFg} id="fg" alt="trumpet and record player"></img>
-        <img src={highriseLogo} id="logo" alt="highrise logo"></img> */}
-
       <img src="/images/coverSkyBg.png" id="sky-bg" alt="background2" />
       <img src="/images/coverBg.png" id="bg" alt="background1" />
       <img src="/images/leftStack.png" id="LS" alt="left speaker stack" />

@@ -4,5 +4,5 @@ const _TOKEN =
 
 export const headers = {
   "Content-Type": "application/json",
-  Authorization: `Bearer ${_TOKEN}`,
+  // Authorization: `Bearer ${_TOKEN}`,
 };

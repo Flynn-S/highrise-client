@@ -1,5 +1,5 @@
 import { headers } from "./APIShared";
-const _BASE_URL = "http://localhost:5000/";
+const _BASE_URL = "http://localhost:5000";
 
 export async function getEvent(eventId) {
   try {
@@ -21,7 +21,7 @@ export async function getEvent(eventId) {
 
 export async function getEvents() {
   try {
-    const resp = await fetch(`${_BASE_URL}/events/`, {
+    const resp = await fetch(`${_BASE_URL}/events`, {
       method: "GET",
       headers,
     });

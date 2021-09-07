@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 import "../index.css";
 
-export default function Navbar({ links, history }) {
+export default function Navbar({ links }) {
   const [isOpen, setOpen] = useState(false);
   // const [showNav, setChecked] = useState(false)
   return (

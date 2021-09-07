@@ -4,22 +4,41 @@ import { withRouter } from "react-router-dom";
 
 import "../index.css";
 
-import EventHeader from "../components/EventHeader";
+import EventCard from "../components/EventCard";
 import { getEvents } from "../services/events";
 
 const EventList = (history, location, match) => {
   const [events, setEvents] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const events = getEvents();
-    console.log(events);
-    setEvents(events);
-  });
-  console.log(events);
+    // const events = getEvents();
+    // console.log(events);
+    // setEvents(events);
+    fetch("http://localhost:5000/events")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setEvents(data);
+        setIsLoading(false);
+      });
+  }, []);
+
+  // useEffect(() => {
+  //   const events = getEvents();
+  //   setEvents(events);
+  //   setIsLoading(false);
+  // }, []);
+
   return (
-    <div className="ticketpage-wrapper">
-      <EventHeader eventDetails={events} />
-    </div>
+    <>
+      {isLoading && <div>Loading...</div>}
+      {events &&
+        events.events.map((event) => {
+          return <EventCard eventData={event} />;
+        })}
+    </>
   );
 };
 

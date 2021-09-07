@@ -3,6 +3,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import FAQDropdown from "../components/FAQDropdown";
 import patterns from "../images/shapestwo.svg";
+import Footer from "../components/Footer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -111,20 +112,22 @@ const FAQs = (history, location, match) => {
   };
 
   return (
-    <div class="faq-wrapper">
-      <div class="faq-background">
-        <div className="faq-container">
-          {/* <div className="patterns-one">
+    <>
+      <div class="faq-wrapper">
+        <div class="faq-background">
+          <div className="faq-container">
+            {/* <div className="patterns-one">
             {/* <img src={patterns} alt="patterns" /> */}
-          {/* </div> */}
-          {getQuestions()}
-          {/* <div className="patterns-two">
+            {/* </div> */}
+            {getQuestions()}
+            {/* <div className="patterns-two">
                 <img src={patterns} alt="patterns" />
             </div> */}
+          </div>
         </div>
+        {/* <div class="footer">FOOTER</div> */}
       </div>
-      {/* <div class="footer">FOOTER</div> */}
-    </div>
+    </>
   );
 };
 

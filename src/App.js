@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
+
 import { AnimatePresence } from "framer-motion";
 
 import RollerSpinner from "./components/RollerSpinner";
@@ -11,10 +12,13 @@ import FAQs from "./pages/FAQs";
 import Lineup from "./pages/Lineup";
 import Navbar from "./components/Navbar";
 import Events from "./pages/Events";
+import EventDetails from "./containers/EventDetails";
+import Footer from "./components/Footer";
 
 // const Homepage = React.lazy(() => import("./pages/Homepage"));
 
 function App() {
+  const { url } = useRouteMatch();
   const location = useLocation();
   return (
     <Suspense fallback={<RollerSpinner />}>
@@ -32,35 +36,37 @@ function App() {
         ]}
       />
 
-      <AnimatePresence exitBeforeEnter initial={false}>
-        <Switch location={location} key={location.pathname}>
-          <Route
-            exact
-            path="/"
-            render={(routerProps) => <Homepage {...routerProps} />}
-          />
-          <Route
-            exact
-            path="/FAQs"
-            render={(routerProps) => <FAQs {...routerProps} />}
-          />
-          <Route
-            exact
-            path="/Line up"
-            render={(routerProps) => <Lineup {...routerProps} />}
-          />
-          <Route
-            exact
-            path="/Events"
-            render={(routerProps) => <Events {...routerProps} />}
-          />
-          <Route
-            exact
-            path="/tickets"
-            render={(routerProps) => <Ticketpage {...routerProps} />}
-          />
-        </Switch>
-      </AnimatePresence>
+      {/* <AnimatePresence exitBeforeEnter initial={false}> */}
+      <Switch location={location} key={location.pathname}>
+        <Route
+          exact
+          path="/"
+          render={(routerProps) => <Homepage {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/FAQs"
+          render={(routerProps) => <FAQs {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/Line up"
+          render={(routerProps) => <Lineup {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/Events"
+          render={(routerProps) => <Events {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/tickets"
+          render={(routerProps) => <Ticketpage {...routerProps} />}
+        />
+      </Switch>
+      <Route path="/events/:eventId" component={EventDetails} />
+      <Footer />
+      {/* </AnimatePresence> */}
     </Suspense>
   );
 }

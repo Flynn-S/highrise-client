@@ -1,11 +1,14 @@
 import React from "react";
-import EventDetails from "../containers/EventDetails";
+
 import EventList from "../containers/EventList";
+import Footer from "../components/Footer";
 
 export default function Events() {
   return (
-    <div>
-      <EventList />
-    </div>
+    <>
+      <div className="eventpage-wrapper">
+        <EventList />
+      </div>
+    </>
   );
 }

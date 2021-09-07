@@ -138,20 +138,28 @@ nav li {
   color: white;
   display: block;
   margin: 0 1%;
+  transition: transform 0.2s ease-in-out;
 }
 
 nav li a {
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-family: "nove";
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 5px 0 #000;
+  transition: 0.2s ease-in-out;
 }
 
 nav li a:hover {
   color: var(--secondary-color);
+  transform: translateY(-100px);
+
   text-decoration: none;
+}
+
+nav li:hover {
+  transform: scale(1.1) translateY(-3px);
 }
 
 /* navbar hambuger */
@@ -232,6 +240,7 @@ nav li a:hover {
 /* COVER START */
 
 section.imgBox {
+  margin-top: 100px;
   position: relative;
   width: 100vw;
   min-height: 100vh;
@@ -303,12 +312,20 @@ section.imgBox h2 {
 }
 
 /* COVER END */
+/* EVENT PAGE */
+.eventpage-wrapper {
+  margin-top: 100px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+}
 
 /* TICKET PAGE */
 .ticketpage-wrapper {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 400px 400px 200px;
+  grid-template-rows: minmax(200px, 2fr), minmax(200px, 2fr), minmax(100px, 1fr);
   margin-top: 100px;
   grid-template-areas:
     "h h h h h h h h h h h h"
@@ -324,11 +341,11 @@ section.imgBox h2 {
 #hero-container {
   background-image: url("/src/images/reggaeSundays.jpeg");
   height: 400px;
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
-  background-position-y: 60px;
+  /* background-attachment: fixed; */
+  /* background-position-y: 60px; */
   position: relative;
   display: flex;
   justify-content: center;
@@ -351,7 +368,7 @@ section.imgBox h2 {
 #hero-image {
   height: 40%;
   width: auto;
-  margin-right: 10px;
+  padding: 0 10px;
   z-index: 1;
 }
 
@@ -368,13 +385,13 @@ section.imgBox h2 {
   font-weight: 400;
 }
 
-.ticketpage-header section div.hero-text {
+.hero-text {
   grid-column: span 8;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
-  margin-left: 10px;
+  padding: 0 10px;
 }
 
 .ticketpage-content {
@@ -388,6 +405,7 @@ section.imgBox h2 {
 }
 
 section.ticketpage-content p {
+  margin: 2% 0%;
   color: black;
   text-align: center;
 }
@@ -490,6 +508,16 @@ section.ticketpage-content p {
 .MuiAccordion-rounded {
   background-color: black;
 }
+
+/* EVENTS PAGE */
+
+/* .eventsList {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
 @media (min-width: 480px) {
   .faq-list li h3 {

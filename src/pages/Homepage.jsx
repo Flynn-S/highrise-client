@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 //components
 import Cover from "../components/Cover";
 import Section2 from "../components/Section2";
+import Footer from "../components/Footer";
 
 export default class Homepage extends Component {
   state = {

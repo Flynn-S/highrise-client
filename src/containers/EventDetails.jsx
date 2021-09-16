@@ -7,6 +7,7 @@ import reggaeSundays from "../images/reggaeSundays.jpeg";
 import EventCard from "../components/EventCard";
 import RollerSpinner from "../components/RollerSpinner";
 import { getEvent } from "../services/events";
+import MapContainer from "./MapContainer";
 
 const EventDetails = (props) => {
   const [eventDetails, setEventDetails] = useState(null);
@@ -14,7 +15,9 @@ const EventDetails = (props) => {
 
   useEffect(() => {
     console.log(props);
-    fetch(`http://localhost:5000/events/${props.match.params.eventId}`)
+    fetch(
+      `${process.env.REACT_APP_API_URL}/events/${props.match.params.eventId}`
+    )
       .then((res) => {
         return res.json();
       })
@@ -26,12 +29,6 @@ const EventDetails = (props) => {
       .catch((error) => console.log(error));
   }, []);
 
-  //   // const setBackgroundImage() => {
-  //   const backgroundImageStyle = {
-  //   backgroundImage: `url(${eventDetails.image})`,
-
-  // };
-
   return (
     <>
       {isLoading && <RollerSpinner />}
@@ -39,10 +36,7 @@ const EventDetails = (props) => {
         <div className="ticketpage-wrapper">
           <header className="ticketpage-header">
             <section id="hero-wrapper">
-              <div
-                id="hero-container"
-                // style={{ backgroundImage: "url(" + `${eventDetails.image})` }}
-              >
+              <div id="hero-container">
                 <img className="bg-image" src={`../${eventDetails.image}`} />
                 <div className="bg-filter"></div>
                 <img
@@ -65,6 +59,8 @@ const EventDetails = (props) => {
           <section className="ticketpage-content">
             <p>{eventDetails.description}</p>
           </section>
+
+          <MapContainer />
         </div>
       )}
     </>

@@ -15,7 +15,7 @@ const EventList = (history, location, match) => {
     // const events = getEvents();
     // console.log(events);
     // setEvents(events);
-    fetch("http://localhost:5000/events")
+    fetch(`${process.env.REACT_APP_API_URL}/events`)
       .then((res) => {
         return res.json();
       })

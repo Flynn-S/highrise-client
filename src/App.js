@@ -27,7 +27,6 @@ function App() {
         links={[
           "Home",
           "Line Up",
-          "Travel",
           "FAQs",
           "Events",
           "Account",

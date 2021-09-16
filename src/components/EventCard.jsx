@@ -17,6 +17,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import reggaeSundays from "../images/reggaeSundays.jpeg";
 import { Link } from "react-router-dom";
+import { compareAsc, format } from "date-fns";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,6 +51,7 @@ export default function EventCard({ eventData }) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   return (
     <>
       <Card className={classes.root}>
@@ -68,7 +70,7 @@ export default function EventCard({ eventData }) {
             </IconButton>
           }
           title={eventData.name}
-          subheader={eventData.eventDate}
+          subheader={format(new Date(eventData.eventDate), "dd-MM-yyyy")}
         />
         <Link to={`/events/${eventData._id}`}>
           <CardMedia

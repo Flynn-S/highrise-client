@@ -20,10 +20,17 @@ const EventDetails = (props) => {
       })
       .then((data) => {
         setEventDetails(data);
+        console.log(data);
         setIsLoading(false);
       })
       .catch((error) => console.log(error));
   }, []);
+
+  //   // const setBackgroundImage() => {
+  //   const backgroundImageStyle = {
+  //   backgroundImage: `url(${eventDetails.image})`,
+
+  // };
 
   return (
     <>
@@ -32,11 +39,15 @@ const EventDetails = (props) => {
         <div className="ticketpage-wrapper">
           <header className="ticketpage-header">
             <section id="hero-wrapper">
-              <div id="hero-container">
+              <div
+                id="hero-container"
+                // style={{ backgroundImage: "url(" + `${eventDetails.image})` }}
+              >
+                <img className="bg-image" src={`../${eventDetails.image}`} />
                 <div className="bg-filter"></div>
                 <img
                   id="hero-image"
-                  src={reggaeSundays}
+                  src={`../${eventDetails.image}`}
                   alt="Reggae Sundays event artwork"
                 />
                 <div className="hero-text">

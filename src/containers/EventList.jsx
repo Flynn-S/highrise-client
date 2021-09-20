@@ -7,6 +7,8 @@ import "../index.css";
 import EventCard from "../components/EventCard";
 import { getEvents } from "../services/events";
 
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 const EventList = (history, location, match) => {
   const [events, setEvents] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +35,15 @@ const EventList = (history, location, match) => {
 
   return (
     <>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && (
+        <div id="loading-icon">
+          <CircularProgress style={{ margin: "0% 1%" }} />
+
+          <CircularProgress style={{ margin: "0% 1%" }} />
+
+          <CircularProgress style={{ margin: "0% 1%" }} />
+        </div>
+      )}
       {events &&
         events.events.map((event) => {
           return <EventCard eventData={event} />;

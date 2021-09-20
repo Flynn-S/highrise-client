@@ -3,8 +3,6 @@ import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
 
-import RollerSpinner from "./components/RollerSpinner";
-
 import "./App.css";
 import Homepage from "./pages/Homepage";
 import Ticketpage from "./pages/Ticketpage";
@@ -15,23 +13,25 @@ import Events from "./pages/Events";
 import EventDetails from "./containers/EventDetails";
 import Footer from "./components/Footer";
 
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 // const Homepage = React.lazy(() => import("./pages/Homepage"));
 
 function App() {
   const { url } = useRouteMatch();
   const location = useLocation();
   return (
-    <Suspense fallback={<RollerSpinner />}>
+    <Suspense fallback={<CircularProgress />}>
       <Navbar
         title="Highrise Festival"
         links={[
-          "Home",
-          "Line Up",
-          "FAQs",
-          "Events",
-          "Account",
-          "Contact",
-          "Tickets",
+          "home",
+          "line-up",
+          "faqs",
+          "events",
+          "account",
+          "contact",
+          "tickets",
         ]}
       />
 
@@ -44,17 +44,17 @@ function App() {
         />
         <Route
           exact
-          path="/FAQs"
+          path="/faqs"
           render={(routerProps) => <FAQs {...routerProps} />}
         />
         <Route
           exact
-          path="/Line up"
+          path="/line-up"
           render={(routerProps) => <Lineup {...routerProps} />}
         />
         <Route
           exact
-          path="/Events"
+          path="/events"
           render={(routerProps) => <Events {...routerProps} />}
         />
         <Route

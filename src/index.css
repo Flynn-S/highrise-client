@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
 
 @font-face {
   font-family: "nove";
@@ -76,6 +77,7 @@ nav.menu-wrapper {
 
 #nav-logo {
   height: 100%;
+
   /* margin: 5px 10px; */
 }
 
@@ -130,7 +132,8 @@ nav ul.menu {
   /* min-width: 50%; */
   display: flex;
   justify-content: space-between;
-  flex: 7;
+  align-items: center;
+  flex: 4;
   margin-bottom: 0;
 }
 
@@ -318,17 +321,40 @@ section.imgBox h2 {
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: repeat(2, 1fr);
+  height: 100%;
+  width: 100vw;
+  background-image: url("./images/background-lineup.svg");
 }
 
+/* EVENT DETAILS PAGE */
+
+.eventDetails-wrapper {
+  height: 100%;
+  background-image: url("./images/background-lineup.svg");
+  background-repeat: repeat-y;
+}
 /* TICKET PAGE */
+
+#loading-icon {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .ticketpage-wrapper {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: minmax(200px, 2fr), minmax(200px, 2fr), minmax(100px, 1fr);
+  grid-template-rows: minmax(200px, 1fr), minmax(200px, 2fr), minmax(100px, 1fr);
   margin-top: 100px;
+  height: 100%;
+  width: 100vw;
   grid-template-areas:
     "h h h h h h h h h h h h"
-    ". . c c c c c c c c . ."
+    "c c c c c c c c c c c c"
+    "m m m m m m m m m m m m"
+    "p p p p p p p p p p p p"
     ". f f f f f f f f f f .";
 }
 
@@ -348,7 +374,7 @@ section.imgBox h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: -2;
+  z-index: 0;
   overflow: hidden;
 }
 
@@ -411,10 +437,109 @@ section.imgBox h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  height: max-content;
+}
+
+.ticketpage-description {
+  width: 55vw;
+}
+
+.ticketpage-map {
+  grid-area: m;
+  /* grid-column: span 8;
+  grid-column-start: 2;
+  grid-column-end: 11; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticketpage-payment {
+  grid-area: p;
+  /* grid-column: span 8;
+  grid-column-start: 2;
+  grid-column-end: 11; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.ticket-button-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2% 0%;
+}
+
+.ticket-button-list button {
+  width: 45vw;
+  padding: 2%;
+  height: 100%;
+  min-height: 100px;
+  overflow: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+
+  /* background-color: rgba(255, 255, 255, 0.071); */
+  background: none rgb(243, 243, 243);
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  margin: 0.5% 0%;
+  font-family: "Montserrat", sans-serif;
+  transition: transform 0.2s ease 0s, box-shadow 0.2s ease 0s;
+}
+
+.ticket-button-list button:disabled {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.ticket-button-list button:hover {
+  background-color: rgb(255, 255, 255);
+  transform: translateZ(1px);
+  box-shadow: rgb(0 0 0 / 5%) 0px 4px 12px;
+  z-index: 1;
+}
+
+.ticket-button-list button:disabled:hover {
+  background: none rgb(243, 243, 243);
+  cursor: not-allowed;
+}
+
+.ticket-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ticket-labels h2,
+.ticket-labels h3,
+.ticket-labels p {
+  margin: 0;
+}
+
+.ticket-labels h3 {
+  font-size: 18px;
+}
+
+.ticket-labels h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.ticket-labels p {
+  font-weight: 700;
 }
 
 section.ticketpage-content p {
   margin: 2% 0%;
+  padding: 2% 2%;
   color: black;
   text-align: center;
 }

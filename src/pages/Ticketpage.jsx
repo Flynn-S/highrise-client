@@ -6,7 +6,7 @@ import reggaeSundays from "../images/reggaeSundays.jpeg";
 
 import Footer from "../components/Footer";
 
-const Ticketpage = (history, location, match) => {
+const Ticketpage = (props) => {
   return (
     <div className="ticketpage-wrapper">
       <header className="ticketpage-header">

@@ -10,7 +10,9 @@ import FAQs from "./pages/FAQs";
 import Lineup from "./pages/Lineup";
 import Navbar from "./components/Navbar";
 import Events from "./pages/Events";
+import Contact from "./pages/Contact";
 import EventDetails from "./containers/EventDetails";
+
 import Footer from "./components/Footer";
 
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -61,6 +63,11 @@ function App() {
           exact
           path="/tickets"
           render={(routerProps) => <Ticketpage {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/Contact"
+          render={(routerProps) => <Contact {...routerProps} />}
         />
       </Switch>
       <Route path="/events/:eventId" component={EventDetails} />

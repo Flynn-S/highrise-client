@@ -6,8 +6,10 @@ import Footer from "../components/Footer";
 export default function Events() {
   return (
     <>
-      <div className="eventpage-wrapper">
-        <EventList />
+      <div className="events-container">
+        <div className="eventpage-wrapper">
+          <EventList />
+        </div>
       </div>
     </>
   );

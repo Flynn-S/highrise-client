@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oi&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
 @font-face {
   font-family: "nove";
   src: url(/src/fonts/Nove.ttf);
@@ -239,6 +239,173 @@ nav li:hover {
 
 /* NAVBAR END */
 
+/* FOOTER */
+
+.highrise-footer {
+  /* background-color:#26272b; */
+  padding: 45px 0 20px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff;
+  background-color: #ea6d7c;
+  font-family: "Poppins-semibold", "Poppins", sans-serif;
+}
+
+.highrise-footer hr {
+  border-top-color: #fff;
+  opacity: 0.5;
+}
+
+.highrise-footer hr.small {
+  margin: 20px 0;
+}
+
+.highrise-footer h6 {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px;
+  /* padding-bottom: 2.5%;  remove if you change the links  */
+}
+
+.highrise-footer a {
+  color: #fff;
+}
+
+.highrise-footer a:hover {
+  color: #ffe415;
+  text-decoration: none;
+}
+
+.footer-links {
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-links li {
+  display: block;
+}
+
+.footer-links a {
+  color: #fff;
+}
+
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+  color: #ffe415;
+  text-decoration: none;
+}
+
+.footer-links.inline li {
+  display: inline-block;
+}
+
+.highrise-footer .social-icons {
+  text-align: center;
+}
+
+.highrise-footer .social-icons a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 6px;
+  margin-right: 0;
+  border-radius: 100%;
+  /* background-color: #33353d */
+}
+
+.copyright-text {
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .highrise-footer [class^="col-"] {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .highrise-footer {
+    padding-bottom: 0;
+  }
+  .highrise-footer .copyright-text,
+  .highrise-footer .social-icons {
+    text-align: center;
+  }
+}
+
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 0px 4px;
+}
+
+.social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.social-icons a {
+  background-color: #eceeef;
+  color: #818a91;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+  color: #fff;
+  background-color: #29aafe;
+}
+
+.social-icons.size-sm a {
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  font-size: 14px;
+}
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+
+.social-icons a.twitter:hover {
+  background-color: #00aced;
+}
+
+.social-icons a.instagram:hover {
+  background-color: #ea4c89;
+}
+
+@media (max-width: 767px) {
+  .social-icons li.title {
+    display: block;
+    margin-right: 0;
+    font-weight: 600;
+  }
+}
+
 /* COVER START */
 
 section.imgBox {
@@ -315,6 +482,13 @@ section.imgBox h2 {
 
 /* COVER END */
 /* EVENT PAGE */
+
+/* .events-container {
+  background-image: url("./images/background-lineup.svg");
+  height: 100vh;
+  width: 100vw;
+} */
+
 .eventpage-wrapper {
   margin-top: 100px;
   display: grid;
@@ -333,6 +507,7 @@ section.imgBox h2 {
   background-image: url("./images/background-lineup.svg");
   background-repeat: repeat-y;
 }
+
 /* TICKET PAGE */
 
 #loading-icon {
@@ -382,7 +557,6 @@ section.imgBox h2 {
   width: 100%;
   height: auto;
   position: absolute;
-
   top: 0;
   left: 0;
   z-index: -2;
@@ -437,7 +611,6 @@ section.imgBox h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-
   height: max-content;
 }
 
@@ -461,6 +634,7 @@ section.imgBox h2 {
   grid-column-start: 2;
   grid-column-end: 11; */
   display: flex;
+
   justify-content: center;
   align-items: center;
 
@@ -485,7 +659,7 @@ section.imgBox h2 {
   justify-content: space-between;
   align-items: center;
   border: none;
-
+  position: relative;
   /* background-color: rgba(255, 255, 255, 0.071); */
   background: none rgb(243, 243, 243);
   font-size: 12px;
@@ -493,6 +667,18 @@ section.imgBox h2 {
   margin: 0.5% 0%;
   font-family: "Montserrat", sans-serif;
   transition: transform 0.2s ease 0s, box-shadow 0.2s ease 0s;
+}
+
+.ticket-button-list button::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  height: 100%;
+  width: 5px;
+  background: var(--primary-color);
+  opacity: 0;
+  transition: all 0.2s ease 0s;
 }
 
 .ticket-button-list button:disabled {
@@ -506,10 +692,18 @@ section.imgBox h2 {
   z-index: 1;
 }
 
+.ticket-button-list button:not([disabled]):hover::before,
+.ticket-button-list button:not([disabled]):focus::before,
+.ticket-button-list button:not([disabled]):active::before {
+  opacity: 1;
+}
+
 .ticket-button-list button:disabled:hover {
   background: none rgb(243, 243, 243);
   cursor: not-allowed;
 }
+
+/* .ticket-button-list button::before */
 
 .ticket-labels {
   display: flex;
@@ -586,18 +780,254 @@ section.ticketpage-content p {
   color: var(--primary-color);
 }
 
+/* CONTACT PAGE */
+
+/* -------- Contact --------- */
+
+.contact-wrapper {
+  margin-top: 100px;
+}
+.contact-background {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./images/background-lineup.svg");
+}
+.contact-container {
+  padding-top: 4%;
+  text-align: center;
+}
+
+.contact-form {
+  padding: 0 2% 2% 2%;
+  overflow: hidden;
+  position: relative;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 2%;
+}
+
+.contact-us h1 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 45px;
+  margin-bottom: 1.5%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  text-align: center;
+}
+
+.contact-us h2 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 40px;
+  margin-top: 2%;
+  /* margin-bottom: -1%; */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  text-align: center;
+}
+
+.contact-form input {
+  width: 100%;
+  outline: none;
+  border: 2px solid white;
+  background-color: #fff;
+  padding: 12px 20px;
+  font-weight: 500;
+  color: #ea6d7c;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-bottom: 2.5%;
+}
+
+.contact-form textarea {
+  padding: 12px 20px;
+  min-height: 250px;
+  border-radius: 20px;
+  resize: none;
+  overflow-y: auto;
+  width: 100%;
+  outline: none;
+  border: 2px solid white;
+  background-color: #fff;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+  transition: 0.3s;
+  color: #ea6d7c;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #ea6d7c;
+  opacity: 1;
+}
+
+.contact-form input:-ms-input-placeholder,
+.contact-form textarea:-ms-input-placeholder {
+  color: #ea6d7c;
+}
+
+.contact-form input::-ms-input-placeholder,
+.contact-form textarea:-ms-input-placeholder {
+  color: #ea6d7c;
+}
+
+.social-icons-contact a {
+  background-color: #fff;
+  /* color: #818a91; */
+  color: #ea6d7c;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 88px;
+  width: 88px;
+  height: 88px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.social-icons-contact {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.social-icons-contact li {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 0px 4px;
+  margin-left: 1.5%;
+}
+
+/* .social-icons-contact li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px
+} */
+
+.social-icons-contact a:active,
+.social-icons-contact a:focus,
+.social-icons-contact a:hover {
+  color: #fff;
+  background-color: #29aafe;
+}
+
+.social-icons-contact.size-sm a {
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  font-size: 14px;
+}
+
+.social-icons-contact a.facebook:hover {
+  background-color: #3b5998;
+}
+
+.social-icons-contact a.twitter:hover {
+  background-color: #00aced;
+}
+
+.social-icons-contact a.instagram:hover {
+  background-color: #ea4c89;
+}
+
+/* .contact-button {
+  font-size: 19px;
+  font-family: 'Pacifico';
+  overflow: visible;
+  border-radius: 3px;
+  position: relative;
+  padding-right: 30px;
+  background-color: #ECFBFF;
+  border: 2px solid #A6E0EE;
+  color: #2D7586;
+  display: block;
+  margin: 13% auto;
+  height: 60px;
+  width: 200px;
+  cursor: pointer;
+} */
+
+.contact-button {
+  overflow: visible;
+  position: relative;
+  background-color: #ffe415;
+  /* color: #2D7586; */
+  display: block;
+  margin: 13% auto;
+  height: 60px;
+  width: 200px;
+  cursor: pointer;
+  transition: 15s;
+  width: 20%;
+  outline: none;
+  border: 1px solid white;
+  background-color: #ea6d7c;
+  padding: 12px 20px;
+  font-weight: 500;
+  color: #fff;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-right: 5%;
+  margin-top: 3%;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.contact-button:hover {
+  background-color: #ddf7ff;
+  transition: 15s;
+}
+
+.contact-button:hover svg {
+  transform: rotate(10deg);
+  transition: transform 0.15s;
+}
+
+.contact-button svg {
+  position: absolute;
+  top: 13px;
+  right: 25px;
+  height: 30px;
+  width: auto;
+  transition: transform 0.15s;
+}
+
+.contact-button svg path {
+  fill: #fff;
+  transition: 0.15s;
+}
+/* END OF CONTACT PAGE */
+
 /* -------- FAQs --------- */
 .faq-wrapper {
   margin-top: 100px;
-  background-color: var(--tertiary-color);
+  /* background-color: var(--tertiary-color); */
+  background-image: url("./images/background-lineup.svg");
   background-repeat: repeat-y;
   height: max-content;
 }
 
+/*  
 .faq-background {
   /* background-image: url(./images/blueBackground.jpeg); */
-  /* background-color:  rgba(112,208,204, 0.6); */
-  /* background-color: rgb(249,172,102); */
+/* background-color:  rgba(112,208,204, 0.6); */
+/* background-color: rgb(249,172,102); */
+/*  
   height: auto;
   width: auto;
   background-image: url("./images/shapes.svg");
@@ -609,6 +1039,7 @@ section.ticketpage-content p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; */
+/*  
 }
 
 .faq-container {
@@ -618,8 +1049,132 @@ section.ticketpage-content p {
 
   justify-content: center;
 }
+*/
 
-.MuiAccordionDetails-root {
+/* .faq-background {
+  /* background-image: url(./images/blueBackground.jpeg); */
+/* background-color:  rgba(112,208,204, 0.6); */
+/* background-color: rgb(249,172,102); */
+/* height: auto;
+  width: auto; */
+/* background-image: url("./images/shapesOne.svg"); */
+/* background-size: contain; 
+  background-repeat: repeat-x;
+  background-position-x: -1550px; */
+/* background-color: #faac66; */
+/* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+/* } */
+
+.shapes-one {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 40%;
+  top: 15%;
+}
+
+.shapes-one .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 138%;
+}
+
+.shapes-two {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  right: 42%;
+  top: 14%;
+}
+
+.shapes-two .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 138%;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-box p {
+  color: var(--grayishBlue);
+  font-family: "Poppins-semibold", "Poppins", sans-serif;
+}
+
+h2 {
+  color: hsl(234, 12%, 34%);
+  font-weight: 600;
+  font-family: "Poppins-semibold", "Poppins", sans-serif;
+}
+
+.faq-dropdown {
+  width: 55%;
+  /* width: 45%; */
+  /* padding: 2% 0%; */
+  margin-top: 3%;
+  /* margin: 20px;   */
+}
+
+.faq-dropdown:last-of-type {
+  margin-bottom: 5%;
+}
+
+.faq-heading {
+  flex-basis: 50%;
+  flex-shrink: 0;
+  color: white;
+  font-weight: 600 !important;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif !important;
+  font-family: "Poppins-semibold", "Poppins", sans-serif;
+}
+
+.faq-collapsed-box {
+  border-top: 5px solid #66b2f9;
+  /* border-top: 5px solid #ffe415; */
+  border-radius: 5px;
+  box-shadow: 0px 30px 40px -20px hsl(229, 6%, 66%);
+  padding: 9px;
+}
+
+.faq-p {
+  color: white;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 10px;
+  padding: 5px 20px;
+}
+
+.faq-wrapper > .MuiAccordionSummary-content.Mui-expanded {
+  margin: 20px 0 0 5px !important;
+}
+
+.faq-wrapper > .MuiPaper-root {
+  border-radius: 15px;
+  transition: 0.45s;
+  position: absolute;
+  /* background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%); */
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  /* background-color: rgba(149,69,79, 0.7) !important; */
+  height: 100%;
+  width: 100%;
+}
+
+.faq-wrapper > .MuiIconButton-root {
+  color: #fff !important;
+}
+
+.faq-wrapper .MuiAccordionDetails-root {
   padding: 20px 48px 45px;
 }
 
@@ -640,7 +1195,7 @@ section.ticketpage-content p {
   position: absolute;
 }
 
-.makeStyles-heading-7 {
+.faq-wrapper > .makeStyles-heading-7 {
   font-size: 1.2375rem !important;
   flex-basis: 100% !important;
   font-weight: bold !important;

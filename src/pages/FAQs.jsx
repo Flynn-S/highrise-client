@@ -102,7 +102,7 @@ const FAQData = [
   },
 ];
 
-const FAQs = (history, location, match) => {
+const FAQs = (props) => {
   const classes = useStyles();
 
   const getQuestions = () => {

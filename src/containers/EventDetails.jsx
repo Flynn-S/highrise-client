@@ -13,15 +13,30 @@ import RollerSpinner from "../components/RollerSpinner";
 import { getEvent } from "../services/events";
 import MapContainer from "./MapContainer";
 import Payment from "./StripePayment/Payment";
-import GenPay from "./StripePayment/GenPay";
+
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+
 import { add } from "date-fns";
 
 const EventDetails = (props) => {
   const [eventDetails, setEventDetails] = useState(null);
   const [gitData, setGitData] = useState(null);
-
+  const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  // modal open/close functions
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   useEffect(() => {
     console.log(props);
 
@@ -121,15 +136,8 @@ const EventDetails = (props) => {
             </section>
             <section className="ticketpage-payment">
               <div className="ticket-button-list">
-                <button
-                  type="submit"
-                  disabled
-                  className={
-                    gitData.eventDetails.ticketsAvailable === 0
-                      ? "sold-out"
-                      : ""
-                  }
-                >
+                <h2>Select a ticket</h2>
+                <button type="button" disabled>
                   <div className="ticket-labels">
                     <h3>Early Bird 1st Release</h3>
                     <p>
@@ -142,7 +150,7 @@ const EventDetails = (props) => {
                     <h2>{`£${gitData.ticketDetails.tickets[0].price}`}</h2>
                   </div>
                 </button>
-                <button type="submit">
+                <button type="button" onClick={handleClickOpen}>
                   <div className="ticket-labels">
                     <h3>Final Release</h3>
                     <p>
@@ -156,6 +164,35 @@ const EventDetails = (props) => {
                   </div>
                 </button>
               </div>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="form-dialog-title"
+              >
+                <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+                <DialogContent>
+                  <DialogContentText>
+                    To subscribe to this website, please enter your email
+                    address here. We will send updates occasionally.
+                  </DialogContentText>
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    id="name"
+                    label="Email Address"
+                    type="email"
+                    fullWidth
+                  />
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose} color="primary">
+                    Cancel
+                  </Button>
+                  <Button onClick={handleClose} color="primary">
+                    Subscribe
+                  </Button>
+                </DialogActions>
+              </Dialog>
             </section>
           </div>
         </div>

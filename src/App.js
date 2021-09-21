@@ -4,6 +4,9 @@ import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import "./App.css";
+import Landing from "./pages/registration/Landing";
+import Login from "./pages/registration/Login";
+import Register from "./pages/registration/Register";
 import Homepage from "./pages/Homepage";
 import Ticketpage from "./pages/Ticketpage";
 import FAQs from "./pages/FAQs";
@@ -39,9 +42,12 @@ function App() {
 
       {/* <AnimatePresence exitBeforeEnter initial={false}> */}
       <Switch location={location} key={location.pathname}>
+        <Route path="/" exact component={Landing} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" exact component={Register} />
         <Route
           exact
-          path="/"
+          path="/home"
           render={(routerProps) => <Homepage {...routerProps} />}
         />
         <Route

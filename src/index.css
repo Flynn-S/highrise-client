@@ -32,9 +32,9 @@ code {
     monospace;
 }
 
-/* header.App-header {
-  
-} */
+main {
+  margin-top: 100px !important;
+}
 .nav-container {
   /* display: flex; */
   width: 100vw;
@@ -788,12 +788,12 @@ section.ticketpage-content p {
   margin-top: 100px;
 }
 .contact-background {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-image: url("./images/background-lineup.svg");
 }
 .contact-container {
-  padding-top: 4%;
+  padding-top: 2%;
   text-align: center;
 }
 
@@ -809,7 +809,7 @@ section.ticketpage-content p {
 .contact-us h1 {
   color: #fff;
   font-weight: 600;
-  font-size: 45px;
+  font-size: 32px;
   margin-bottom: 1.5%;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -820,7 +820,7 @@ section.ticketpage-content p {
 .contact-us h2 {
   color: #fff;
   font-weight: 500;
-  font-size: 40px;
+  font-size: 32px;
   margin-top: 2%;
   /* margin-bottom: -1%; */
   text-transform: uppercase;
@@ -965,7 +965,8 @@ section.ticketpage-content p {
   position: relative;
   background-color: #ffe415;
   /* color: #2D7586; */
-  display: block;
+  display: flex;
+  align-items: center;
   margin: 13% auto;
   height: 60px;
   width: 200px;
@@ -988,14 +989,14 @@ section.ticketpage-content p {
   font-weight: 600;
 }
 
-.contact-button:hover {
-  background-color: #ddf7ff;
-  transition: 15s;
+.contact-button p {
+  margin: 0;
+  margin-left: 5px;
 }
 
-.contact-button:hover svg {
-  transform: rotate(10deg);
-  transition: transform 0.15s;
+.contact-button:hover {
+  transform: scale(1.1);
+  transition: ease-in-out 0.5s;
 }
 
 .contact-button svg {
@@ -1005,6 +1006,10 @@ section.ticketpage-content p {
   height: 30px;
   width: auto;
   transition: transform 0.15s;
+}
+
+.contact-button:hover svg {
+  transform: rotate(10deg);
 }
 
 .contact-button svg path {

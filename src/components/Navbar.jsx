@@ -33,7 +33,7 @@ export default function Navbar({ links }) {
         <ul className={`menu ${isOpen ? "showNav" : ""}`}>
           {links.map((link) => (
             <li>
-              <Link key={link} to={link !== "home" ? "/" + link : "/"}>
+              <Link key={link} to={"/" + link}>
                 {link === "line-up" ? "LINE UP" : link}
               </Link>
             </li>

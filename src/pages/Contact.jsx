@@ -84,8 +84,7 @@ class Contact extends Component {
                   ></path>
                 </svg>
               </button>
-            </form>
-            ={" "}
+            </form>{" "}
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ import RollerSpinner from "../components/RollerSpinner";
 import { getEvent } from "../services/events";
 import MapContainer from "./MapContainer";
 import Payment from "./StripePayment/Payment";
+import PaymentTickets from "../components/PaymentTickets";
 
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -21,10 +22,19 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-import { add } from "date-fns";
+import { compareAsc, format } from "date-fns";
+
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+// import PaymentForm from "./PaymentForm";
+
+const stripePromise = loadStripe(
+  "pk_test_51JajpeClTnrRJ7z4XrM9IlUhIgJEk70xAm1YNxWAgIMXD8dogKPfKBrpMMeKpNBrQXvF1kChJ0bDGDUbW2LQQiqE00hfShWbjz"
+);
 
 const EventDetails = (props) => {
-  const [eventDetails, setEventDetails] = useState(null);
+  // const [eventDetails, setEventDetails] = useState(null);
   const [gitData, setGitData] = useState(null);
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,23 +47,12 @@ const EventDetails = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
+
   useEffect(() => {
     console.log(props);
 
-    //   useEffect(() => {
-    //     const drinksPromises = id.map(obj =>
-    //         fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${obj.idDrink}`)
-    //             .then(res => res.json())
-    //     );
-    //     Promise.all(drinksPromises).then(data => { setDrinkCard(data) })
-    // }, [id])
     const fetchData = async () => {
       try {
-        // const [eventDetails, ticketData] = await Promise.all([
-        //   axios(
-        //     `${process.env.REACT_APP_API_URL}/events/${props.match.params.eventId}`
-        //   ),
-        // ]);
         const eventData = await axios(
           `${process.env.REACT_APP_API_URL}/events/${props.match.params.eventId}`
         );
@@ -117,10 +116,10 @@ const EventDetails = (props) => {
                   <div className="hero-text">
                     <h1>{gitData.eventDetails.name}</h1>
                     <date>
-                      Friday 13th - Sunday the 15th August{" "}
-                      {gitData.eventDetails.eventDate}
+                      {" "}
+                      {format(new Date(gitData.eventDetails.eventDate), "PPPP")}
                     </date>
-                    <p>Location, TBA {gitData.eventDetails.location}</p>
+                    <p>{gitData.eventDetails.location}</p>
                   </div>
                 </div>
               </section>
@@ -134,66 +133,15 @@ const EventDetails = (props) => {
             <section className="ticketpage-map">
               <MapContainer location={`${gitData.eventDetails.location}`} />
             </section>
-            <section className="ticketpage-payment">
-              <div className="ticket-button-list">
-                <h2>Select a ticket</h2>
-                <button type="button" disabled>
-                  <div className="ticket-labels">
-                    <h3>Early Bird 1st Release</h3>
-                    <p>
-                      {gitData.eventDetails.ticketsAvailable === 0
-                        ? "SOLD OUT"
-                        : "TICKETS AVAILABLE"}
-                    </p>
-                  </div>
-                  <div className="ticket-labels">
-                    <h2>{`£${gitData.ticketDetails.tickets[0].price}`}</h2>
-                  </div>
-                </button>
-                <button type="button" onClick={handleClickOpen}>
-                  <div className="ticket-labels">
-                    <h3>Final Release</h3>
-                    <p>
-                      {gitData.eventDetails.ticketsAvailable === 0
-                        ? "SOLD OUT"
-                        : "TICKETS AVAILABLE"}
-                    </p>
-                  </div>
-                  <div className="ticket-labels">
-                    <h2>{`£${gitData.ticketDetails.tickets[0].price}`}</h2>
-                  </div>
-                </button>
-              </div>
-              <Dialog
+            <Elements stripe={stripePromise}>
+              <PaymentTickets
+                handleClickOpen={handleClickOpen}
+                handleClose={handleClose}
                 open={open}
-                onClose={handleClose}
-                aria-labelledby="form-dialog-title"
-              >
-                <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-                <DialogContent>
-                  <DialogContentText>
-                    To subscribe to this website, please enter your email
-                    address here. We will send updates occasionally.
-                  </DialogContentText>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="Email Address"
-                    type="email"
-                    fullWidth
-                  />
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose} color="primary">
-                    Cancel
-                  </Button>
-                  <Button onClick={handleClose} color="primary">
-                    Subscribe
-                  </Button>
-                </DialogActions>
-              </Dialog>
-            </section>
+                eventDetails={gitData.eventDetails}
+                ticketDetails={gitData.ticketDetails}
+              />
+            </Elements>
           </div>
         </div>
       )}

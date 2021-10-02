@@ -4,17 +4,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Oi&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap");
 @font-face {
   font-family: "nove";
   src: url(/src/fonts/Nove.ttf);
   font-style: normal;
 }
 
+@font-face {
+  font-family: "mazeletter-sandcastle";
+  src: url(fonts/mazeletter-sandcastle.ttf);
+  font-style: normal;
+}
+
 :root {
   --primary-color: #ea6d7c;
+  --primary-color-brighter: #ff8392;
   --secondary-color: #ffe415;
 
   --tertiary-color: #eb9e6e;
+}
+
+/* .payment-modal-container {
+} */
+
+/* REMOVE DEFAULT LINK TEXT DECORATION */
+
+a:-webkit-any-link,
+a:-webkit-any-link :link,
+a:-webkit-any-link :visited,
+a:-webkit-any-link :hover,
+a:-webkit-any-link :active {
+  text-decoration: none !important;
+}
+
+.payment-modal {
+  background-color: var(--tertiary-color) !important;
+}
+
+p {
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -32,9 +62,25 @@ code {
     monospace;
 }
 
-main {
-  margin-top: 100px !important;
+section {
+  padding: 3% 0%;
 }
+/* NAVBAR START */
+
+main a {
+  color: #ea6d7c !important;
+  text-decoration: none !important;
+}
+
+main a:hover {
+  text-decoration: underline !important;
+}
+
+main button {
+  background-color: #ea6d7c !important;
+  color: #ffe415 !important;
+}
+
 .nav-container {
   /* display: flex; */
   width: 100vw;
@@ -77,8 +123,15 @@ nav.menu-wrapper {
 
 #nav-logo {
   height: 100%;
-
   /* margin: 5px 10px; */
+}
+
+.highrise-logo {
+  transition: all 0.5s ease;
+}
+
+.highrise-logo:hover {
+  transform: rotate3d(0, 0, 1, 360deg);
 }
 
 .nav-mid {
@@ -412,7 +465,7 @@ section.imgBox {
   margin-top: 100px;
   position: relative;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 800px;
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -444,7 +497,7 @@ section.imgBox img {
 section.imgBox h2 {
   position: absolute;
   color: #fff;
-  font-size: 10vh;
+  font-size: 80px;
   bottom: 300px;
   font-family: "Oi", cursive;
   font-weight: 100;
@@ -453,10 +506,15 @@ section.imgBox h2 {
     5px 5px 0 #000;
 }
 
+/* HOMEPAGE GALLERY (SECTION 2) */
+
 .homepage-content {
   position: relative;
-  padding: 100px;
+  /* padding: 100px; */
   background: linear-gradient(#f9b16ef3, #e6898c);
+  width: 100vw;
+  overflow: hidden;
+  height: 100%;
 }
 
 .homepage-content::before {
@@ -470,35 +528,260 @@ section.imgBox h2 {
   z-index: 10000;
 }
 
-.homepage-content section h2 {
-  font-size: 3.5rem;
-  margin-bottom: 10px;
-  color: #20496a;
+.about-section {
+  width: 74%;
+  margin-top: 3%;
+  margin-bottom: 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
-.homepage-content section p {
-  font-size: 1.2rem;
-  color: #20496a;
+
+.about-section h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  padding: 2% 1%;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+.about-section p {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  width: 50%;
+}
+
+/* .icon-text svg { 
+  margin-left: 37%;
+} */
+
+.drum-svg {
+  margin-bottom: 4%;
+  color: white;
+  /* margin-left: 37%;
+  margin-top: 4%; */
+}
+
+.mushroom-svg {
+  margin-bottom: 4%;
+  color: white;
+  /* margin-left: 35%;
+  margin-top: 12%; */
+}
+
+.sun-svg {
+  margin-bottom: 4%;
+  color: white;
+  /* margin-left: 37%;
+  margin-top: 18%; */
+}
+
+.gallery-row {
+  margin-bottom: 10%;
+}
+
+.gallery-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4% 1%;
+}
+
+.gallery-divider,
+.MuiDivider-root {
+  background-color: white !important;
+  width: 74% !important;
+  margin-left: 16% !important;
+  height: 5px !important;
+  margin: 2% 0% !important;
+}
+
+.bass-heading {
+  color: white;
+  text-align: center;
+  font-weight: 600 !important;
+  font-size: 35px;
+  font-family: "Poppins", sans-serif;
+
+  padding: 2% 1%;
+}
+
+.homepage-text {
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+
+  padding: 2% 1%;
+  width: 92%;
+}
+
+.gallery-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border: 5px solid black;
+  border-radius: 5px;
 }
 
 /* COVER END */
-/* EVENT PAGE */
 
-/* .events-container {
-  background-image: url("./images/background-lineup.svg");
-  height: 100vh;
-  width: 100vw;
-} */
+/* EVENT PAGE */
 
 .eventpage-wrapper {
   margin-top: 100px;
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: repeat(2, 1fr);
   height: 100%;
   width: 100vw;
   background-image: url("./images/background-lineup.svg");
+  background-repeat: repeat-y;
 }
+
+.eventpage-row {
+  padding: 1% 3%;
+  margin: 2% 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.eventpage-col {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center !important;
+  height: 100%;
+  padding: 5% 0;
+  transform: translateZ(25px) rotateX(4.29128deg) rotateY(5deg);
+}
+
+.tilt {
+  transform-style: preserve-3d;
+}
+
+.event1-info-div {
+  padding: 3% 4%;
+}
+
+.event2-info-div {
+  padding: 3% 4%;
+  text-align: end;
+  position: relative;
+}
+
+.event-image {
+  width: 100%;
+  object-fit: contain;
+  border: 5px solid black;
+  border-radius: 5px;
+  transition: all 1s ease-in-out;
+}
+
+.event-date {
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.event-name {
+  font-family: "nove";
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  font-size: 25px;
+  color: var(--primary-color);
+}
+
+.event-description {
+  font-size: 17px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* border: 1px solid #2d2d2d; */
+
+#event-details-link {
+  /* border: 1px solid black; */
+  border: 1px solid #000;
+  box-shadow: 0px 6px 2px -4px rgba(0, 0, 0, 0.2),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.14), 0px 2px 10px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  text-decoration: none;
+  position: relative;
+  perspective: 200px;
+
+  transform: translateZ(25px) rotateX(4.29128deg) rotateY(5deg);
+  width: 38px;
+  height: 38px;
+  padding: 10px 40px 10px 20px;
+  background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0) 50%,
+      var(--primary-color) 50%
+    )
+    right;
+  background-size: 300%;
+
+  color: black;
+  font-family: "poppins";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 11px;
+  transform: scaleX(0);
+  transition: 0.5s ease-out;
+}
+
+#event-details-link:hover {
+  background-position: left;
+}
+
+#event-details-link:hover span {
+  margin-left: 10px;
+}
+
+.event-arrow {
+  width: 15px;
+  height: 15px;
+  margin-left: 15px;
+  margin-bottom: 1px;
+  /* position: absolute;
+  top: 185px;
+  right: 25px; */
+
+  transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1), background 0s ease;
+}
+
+/* #event-details-link:before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 3px;
+  bottom: 6px;
+  right: 5%;
+  background: #ea6d7c;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 20px;
+  transform: scaleX(0);
+  transition: 0.25s linear;
+}
+
+#event-details-link:hover:before,
+#event-details-link:focus:before {
+  visibility: visible;
+  transform: scaleX(1);
+  opacity: 1;
+} */
 
 /* EVENT DETAILS PAGE */
 
@@ -751,12 +1034,13 @@ section.ticketpage-content p {
   margin-top: 100px;
 }
 .lineup-background {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-image: url("./images/background-lineup.svg");
 }
+
 .lineup-container {
-  padding-top: 4%;
+  padding-top: 2%;
 }
 
 .lineup-list {
@@ -764,20 +1048,24 @@ section.ticketpage-content p {
   text-align: center;
   color: #66b2f9;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 32px;
   font-family: "nove";
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 5px 0 #000;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+    2px 10px 0 #000;
+  margin: 0 0 0 0;
   /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 5px 0 #000; */
 }
 
 .lineup-list li {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s ease-in;
+  padding: 10px 0;
 }
 
 .lineup-list li:hover {
-  transform: scale(1.2);
+  transform: scale(1.3);
   color: var(--primary-color);
+
+  /* margin: 3% 0%; */
 }
 
 /* CONTACT PAGE */
@@ -1117,7 +1405,7 @@ section.ticketpage-content p {
   font-family: "Poppins-semibold", "Poppins", sans-serif;
 }
 
-h2 {
+.faq-contianer h2 {
   color: hsl(234, 12%, 34%);
   font-weight: 600;
   font-family: "Poppins-semibold", "Poppins", sans-serif;

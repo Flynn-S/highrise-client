@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-const Lineup = (history, location, match) => {
+const Lineup = (props) => {
   return (
     <div className="lineup-wrapper">
       <div className="lineup-background">

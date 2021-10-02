@@ -4,13 +4,13 @@ import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import "./App.css";
-import Landing from "./pages/registration/Landing";
+import Landing from "./pages/registration/LandingFunction";
 import Login from "./pages/registration/Login";
 import Register from "./pages/registration/Register";
 import Homepage from "./pages/Homepage";
-import Ticketpage from "./pages/Ticketpage";
+
 import FAQs from "./pages/FAQs";
-import Lineup from "./pages/Lineup";
+import Lineup from "./components/Lineup";
 import Navbar from "./components/Navbar";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
@@ -27,20 +27,14 @@ function App() {
   const location = useLocation();
   return (
     <Suspense fallback={<CircularProgress />}>
-      <Navbar
-        title="Highrise Festival"
-        links={[
-          "home",
-          "line-up",
-          "faqs",
-          "events",
-          "account",
-          "contact",
-          "tickets",
-        ]}
-      />
+      {location.pathname === "/" ? null : location.pathname ===
+        "/login" ? null : location.pathname === "/register" ? null : (
+        <Navbar
+          title="Highrise Festival"
+          links={["home", "line-up", "faqs", "events", "account", "contact"]}
+        />
+      )}
 
-      {/* <AnimatePresence exitBeforeEnter initial={false}> */}
       <Switch location={location} key={location.pathname}>
         <Route path="/" exact component={Landing} />
         <Route path="/login" exact component={Login} />
@@ -65,11 +59,7 @@ function App() {
           path="/events"
           render={(routerProps) => <Events {...routerProps} />}
         />
-        <Route
-          exact
-          path="/tickets"
-          render={(routerProps) => <Ticketpage {...routerProps} />}
-        />
+
         <Route
           exact
           path="/Contact"
@@ -77,8 +67,10 @@ function App() {
         />
       </Switch>
       <Route path="/events/:eventId" component={EventDetails} />
-      <Footer />
-      {/* </AnimatePresence> */}
+      {location.pathname === "/" ? null : location.pathname ===
+        "/login" ? null : location.pathname === "/register" ? null : (
+        <Footer />
+      )}
     </Suspense>
   );
 }
@@ -88,3 +80,44 @@ export default App;
 // {/* <div className="App">
 //     <header className="App-header">{/* <Navbar /> */}</header>
 // </div> */}
+
+// <Navbar
+//         title="Highrise Festival"
+//         links={["home", "line-up", "faqs", "events", "account", "contact"]}
+//       />
+
+//       {/* <AnimatePresence exitBeforeEnter initial={false}> */}
+//       <Switch location={location} key={location.pathname}>
+//         <Route path="/" exact component={Landing} />
+//         <Route path="/login" exact component={Login} />
+//         <Route path="/register" exact component={Register} />
+//         <Route
+//           exact
+//           path="/home"
+//           render={(routerProps) => <Homepage {...routerProps} />}
+//         />
+//         <Route
+//           exact
+//           path="/faqs"
+//           render={(routerProps) => <FAQs {...routerProps} />}
+//         />
+//         <Route
+//           exact
+//           path="/line-up"
+//           render={(routerProps) => <Lineup {...routerProps} />}
+//         />
+//         <Route
+//           exact
+//           path="/events"
+//           render={(routerProps) => <Events {...routerProps} />}
+//         />
+
+//         <Route
+//           exact
+//           path="/Contact"
+//           render={(routerProps) => <Contact {...routerProps} />}
+//         />
+//       </Switch>
+//       <Route path="/events/:eventId" component={EventDetails} />
+//       <Footer />
+//       {/* </AnimatePresence> */}

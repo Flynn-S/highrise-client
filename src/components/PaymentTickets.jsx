@@ -15,20 +15,18 @@ const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
     base: {
-      iconColor: "#c4f0ff",
-      color: "#fff",
+      iconColor: "#000",
+      color: "#000",
       fontWeight: 500,
       fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
       fontSize: "16px",
       fontSmoothing: "antialiased",
-      ":-webkit-autofill": { color: "#fce883" },
-      "::placeholder": { color: "#87bbfd" },
+      ":-webkit-autofill": { color: "#ea6d7c" },
+      "::placeholder": { color: "#ea6d7c" },
     },
     invalid: {
-      //   iconColor: "#ffc7ee",
-      //   color: "#ffc7ee",
-      iconColor: "#000",
-      color: "#000",
+      iconColor: "#ea6d7c",
+      color: "#ea6d7c",
     },
   },
 };
@@ -73,11 +71,6 @@ export default function PaymentTickets(props) {
     }
   };
 
-  const handleChange = (event) => {
-    setDisabled = event.empty;
-    setError = event.error ? event.error.message : "";
-  };
-
   return (
     <section className="ticketpage-payment">
       <div className="ticket-button-list">
@@ -114,8 +107,10 @@ export default function PaymentTickets(props) {
         onClose={props.handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Purchase Tickets</DialogTitle>
-        <DialogContent>
+        <DialogTitle id="form-dialog-title" className="payment-modal">
+          Purchase Tickets
+        </DialogTitle>
+        <DialogContent className="payment-modal">
           <DialogContentText>
             Please enter your card details to complete purchase of your tickets.
           </DialogContentText>
@@ -128,16 +123,17 @@ export default function PaymentTickets(props) {
             {/* <button>Pay Now</button> */}
           </form>
         </DialogContent>
-        <DialogActions>
+        <DialogActions className="payment-modal">
           <Button onClick={props.handleClose} color="primary">
             Cancel
           </Button>
           <Button
-            disabled={processing || disabled || succeeded}
+            // disabled={processing || disabled || succeeded}
             onClick={handleStripeSubmit}
             color="primary"
           >
-            <span>{processing ? <p>Processing</p> : "Pay Now"}</span>
+            {/* <span>{processing ? <p>Processing</p> : "Pay Now"}</span> */}
+            Pay Now
           </Button>
         </DialogActions>
       </Dialog>

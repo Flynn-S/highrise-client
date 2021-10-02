@@ -47,7 +47,7 @@ class Contact extends Component {
               </ul>
             </div>
             <div class="contact-us">
-              <h2>or get in touch</h2>
+              <h2>or get in touch by email</h2>
             </div>
             <form class="contact-form">
               <input

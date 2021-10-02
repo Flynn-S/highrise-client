@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import Button from "@material-ui/core/Button";
 
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-
 import { Link } from "react-router-dom";
 
 // #f44336
@@ -20,11 +18,13 @@ export default function Navbar({ links }) {
           <a href="#">
             <img
               src="/images/logo(cropped).png"
+              className="highrise-logo"
               id="nav-logo"
               alt="highrise Logo"
             />
           </a>
         </div>
+
         <div className="nav-mid">
           <h6 className="dateHeading">AUGUST 25TH - 27TH 2022</h6>
           <span>UNDISCLOSED LOCATION, TBA</span>
@@ -39,7 +39,7 @@ export default function Navbar({ links }) {
             </li>
           ))}
           <li>
-            <Button
+            {/* <Button
               variant="contained"
               className="cart-btn"
               startIcon={<ShoppingCartIcon />}
@@ -50,8 +50,16 @@ export default function Navbar({ links }) {
                 border: "1px solid black",
               }}
             >
-              <span id="cart-label">Cart</span>
-            </Button>
+              <span id="cart-label">{user ? 'Sign Out' : 'Sign In'}</span>
+            </Button> */}
+
+            {/* <Link to={!user && "/login"} className="login-link-button">
+              <div onClick={handleAuthenticaton}>
+                <span className="header__optionLineTwo">
+                  {user ? "Sign Out" : "Sign In"}
+                </span>
+              </div>
+            </Link> */}
           </li>
         </ul>
 

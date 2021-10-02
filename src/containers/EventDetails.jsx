@@ -10,7 +10,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import EventCard from "../components/EventCard";
 import RollerSpinner from "../components/RollerSpinner";
-import { getEvent } from "../services/events";
+
 import MapContainer from "./MapContainer";
 import Payment from "./StripePayment/Payment";
 import PaymentTickets from "../components/PaymentTickets";
@@ -54,10 +54,12 @@ const EventDetails = (props) => {
     const fetchData = async () => {
       try {
         const eventData = await axios(
-          `${process.env.REACT_APP_API_URL}/events/${props.match.params.eventId}`
+          `${process.env.REACT_APP_API_URL}/events/${props.match.params.eventId}`,
+          { withCredentials: true }
         );
         const ticketData = await axios(
-          `${process.env.REACT_APP_API_URL}/tickets`
+          `${process.env.REACT_APP_API_URL}/tickets`,
+          { withCredentials: true }
         );
         setGitData({
           eventDetails: eventData.data,

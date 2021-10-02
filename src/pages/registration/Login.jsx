@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Col, Container, Row, Form, Button, Spinner } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import { Col, Container, Row, Form, Button, Spinner } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   state = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     loading: false,
     isError: false,
-    errorMessage: '',
+    errorMessage: "",
   };
 
   handleChange = (e) => {
@@ -21,24 +21,21 @@ class Login extends Component {
     e.preventDefault();
     try {
       this.setState({ loading: true });
-      const resp = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/auth/login`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: this.state.email,
-            password: this.state.password,
-          }),
-        }
-      );
+      const resp = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+        }),
+      });
       const data = await resp.json();
       if (resp.ok) {
-        localStorage.setItem('token', data.token);
+        localStorage.setItem("token", data.token);
         this.setState({ loading: false });
-        this.props.history.push('/newsfeed');
+        this.props.history.push("/newsfeed");
       } else {
         console.log(data);
         this.setState({ isError: true, errorMessage: data.error });
@@ -51,42 +48,42 @@ class Login extends Component {
   render() {
     return (
       <Container>
-        <Row className='justify-content-center align-items-center min-vh-100'>
-          <Col className='' xs={6}>
+        <Row className="justify-content-center align-items-center min-vh-100">
+          <Col className="" xs={6}>
             <h1>Login</h1>
             <Form onSubmit={this.handleSubmit}>
-              <Form.Group controlId='formBasicEmail'>
+              <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
-                  type='email'
-                  name='email'
-                  placeholder='Enter email'
+                  type="email"
+                  name="email"
+                  placeholder="Enter email"
                   onChange={this.handleChange}
                 />
-                <Form.Text className='text-muted'>
+                <Form.Text className="text-muted">
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
 
-              <Form.Group controlId='formBasicPassword'>
+              <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
-                  type='password'
-                  name='password'
-                  placeholder='Password'
+                  type="password"
+                  name="password"
+                  placeholder="Password"
                   onChange={this.handleChange}
                 />
               </Form.Group>
               {this.state.loading && (
-                <div className='text-center'>
-                  <Spinner animation='grow' />
+                <div className="text-center">
+                  <Spinner animation="grow" />
                 </div>
               )}
               {this.state.isError && (
-                <p className='text-danger'>{this.state.errorMessage}</p>
+                <p className="text-danger">{this.state.errorMessage}</p>
               )}
 
-              <Button variant='primary' type='submit'>
+              <Button variant="primary" type="submit">
                 Submit
               </Button>
             </Form>

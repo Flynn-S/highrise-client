@@ -9,20 +9,20 @@ import { GiDrum } from "react-icons/gi";
 
 export default function EventCard2left(props) {
   return (
-    <Row className="eventpage-row" noGutters>
-      <Tilt
-        perspective={1000}
-        transitionSpeed="200"
-        tiltReverse={true}
-        tiltMaxAngleX={7}
-        tiltMaxAngleY={7}
-        glareEnable={true}
-        glareMaxOpacity={0.3}
-        glareBorderRadius="20px"
-        glarePosition="all"
-        className="tilt d-flex"
-      >
-        <Col sm={12} md={6} className="eventpage-col px-3">
+    <Tilt
+      perspective={1000}
+      transitionSpeed="200"
+      tiltReverse={true}
+      tiltMaxAngleX={7}
+      tiltMaxAngleY={7}
+      glareEnable={true}
+      glareMaxOpacity={0.3}
+      glareBorderRadius="20px"
+      glarePosition="all"
+      className="tilt d-flex"
+    >
+      <Row className="eventpage-row" noGutters>
+        <Col xs={12} md={6} className="eventpage-col-left">
           <img
             className="event-image"
             src={props.eventData.image}
@@ -30,7 +30,7 @@ export default function EventCard2left(props) {
           />
         </Col>
 
-        <Col sm={12} md={6} className="eventpage-col px-3">
+        <Col xs={12} md={6} className="eventpage-col-right">
           <div className="event2-info-div">
             <p className="event-date">
               {format(new Date(props.eventData.eventDate), "dd-MM-yyyy")}
@@ -43,7 +43,7 @@ export default function EventCard2left(props) {
             </Link>
           </div>
         </Col>
-      </Tilt>
-    </Row>
+      </Row>
+    </Tilt>
   );
 }

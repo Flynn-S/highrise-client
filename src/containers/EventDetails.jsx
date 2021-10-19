@@ -3,30 +3,23 @@ import axios from "axios";
 import { withRouter } from "react-router-dom";
 
 import "../index.css";
-import reggaeSundays from "../images/reggaeSundays.jpeg";
 
-import { Button } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
-
-import EventCard from "../components/EventCard";
-import RollerSpinner from "../components/RollerSpinner";
 
 import MapContainer from "./MapContainer";
 import Payment from "./StripePayment/Payment";
-import PaymentTickets from "../components/PaymentTickets";
+import TicketSection from "../components/TicketSection";
+import UserForm from "../components/UserForm";
 
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-
-import { compareAsc, format } from "date-fns";
+import { format } from "date-fns";
 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
+// import Scroll from "react-scroll";
+import { Link, Element } from "react-scroll";
+
+// const ScrollLink = Scroll.ScrollLink;
 // import PaymentForm from "./PaymentForm";
 
 const stripePromise = loadStripe(
@@ -49,8 +42,6 @@ const EventDetails = (props) => {
   };
 
   useEffect(() => {
-    console.log(props);
-
     const fetchData = async () => {
       try {
         const eventData = await axios(
@@ -74,18 +65,6 @@ const EventDetails = (props) => {
     };
     fetchData();
     console.log(gitData);
-    // fetch(
-    //   `${process.env.REACT_APP_API_URL}/events/${props.match.params.eventId}`
-    // )
-    //   .then((res) => {
-    //     return res.json();
-    //   })
-    //   .then((data) => {
-    //     setEventDetails(data);
-    //     console.log(data);
-    //     setIsLoading(false);
-    //   })
-    //   .catch((error) => console.log(error));
   }, []);
 
   return (
@@ -127,16 +106,30 @@ const EventDetails = (props) => {
               </section>
             </header>
 
-            <section className="ticketpage-content">
+            <section className="ticketpage-content d-flex flex-column">
               <div class="ticketpage-description">
                 <p>{gitData.eventDetails.description}</p>
               </div>
             </section>
-            <section className="ticketpage-map">
+            <section className="ticketpage-map container">
+              <h2>Location</h2>
               <MapContainer location={`${gitData.eventDetails.location}`} />
             </section>
-            <Elements stripe={stripePromise}>
-              <PaymentTickets
+
+            <Elements
+              stripe={stripePromise}
+              id="payment-container"
+              name="payment-container"
+            >
+              {/* // Elements wrap from Stripe */}
+              {/* <UserForm
+                handleClickOpen={handleClickOpen}
+                handleClose={handleClose}
+                open={open}
+                eventDetails={gitData.eventDetails}
+                ticketDetails={gitData.ticketDetails}
+              /> */}
+              <TicketSection
                 handleClickOpen={handleClickOpen}
                 handleClose={handleClose}
                 open={open}
@@ -144,6 +137,33 @@ const EventDetails = (props) => {
                 ticketDetails={gitData.ticketDetails}
               />
             </Elements>
+          </div>
+          <div className="buy-tickets-container">
+            <a href="#payment-container" className="buy-tickets-link">
+              BOOK TICKETS
+            </a>
+
+            {/* <ScrollLink
+              to="#payment-container"
+              spy={true}
+              smooth={true}
+              duration={500}
+              className="buy-tickets-link"
+              activeClass="some-active-class"
+            >
+              BOOK TICKETS
+            </ScrollLink> */}
+
+            {/* <Link
+              activeClass="active"
+              className="buy-tickets-link"
+              to="#payment-container"
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
+              BOOK TICKETS
+            </Link> */}
           </div>
         </div>
       )}

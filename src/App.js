@@ -8,6 +8,7 @@ import Landing from "./pages/registration/LandingFunction";
 import Login from "./pages/registration/Login";
 import Register from "./pages/registration/Register";
 import Homepage from "./pages/Homepage";
+import Account from "./pages/Account";
 
 import FAQs from "./pages/FAQs";
 import Lineup from "./components/Lineup";
@@ -37,7 +38,6 @@ function App() {
 
       <Switch location={location} key={location.pathname}>
         <Route path="/" exact component={Landing} />
-        <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route
           exact
@@ -56,13 +56,18 @@ function App() {
         />
         <Route
           exact
+          path="/account"
+          render={(routerProps) => <Account {...routerProps} />}
+        />
+        <Route
+          exact
           path="/events"
           render={(routerProps) => <Events {...routerProps} />}
         />
 
         <Route
           exact
-          path="/Contact"
+          path="/contact"
           render={(routerProps) => <Contact {...routerProps} />}
         />
       </Switch>

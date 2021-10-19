@@ -21,12 +21,10 @@
   --primary-color: #ea6d7c;
   --primary-color-brighter: #ff8392;
   --secondary-color: #ffe415;
-
   --tertiary-color: #eb9e6e;
+  --primary-font: "Montserrat", sans-serif;
+  --special-font: "Nove";
 }
-
-/* .payment-modal-container {
-} */
 
 /* REMOVE DEFAULT LINK TEXT DECORATION */
 
@@ -38,13 +36,8 @@ a:-webkit-any-link :active {
   text-decoration: none !important;
 }
 
-.payment-modal {
-  background-color: var(--tertiary-color) !important;
-}
-
-p {
-  /* font-family: "Poppins", sans-serif; */
-  font-family: "Montserrat", sans-serif;
+body {
+  font-family: var(--primary-font);
 }
 
 body {
@@ -63,7 +56,7 @@ code {
 }
 
 section {
-  padding: 3% 0%;
+  padding-bottom: 3%;
 }
 /* NAVBAR START */
 
@@ -144,7 +137,7 @@ nav.menu-wrapper {
   /* overflow: hidden; */
 }
 .nav-mid h6.dateHeading {
-  font-family: "nove";
+  font-family: var(--special-font);
   font-weight: 400;
   font-size: 1rem;
   color: #000000;
@@ -155,7 +148,7 @@ nav.menu-wrapper {
 }
 
 .nav-mid span {
-  font-family: "nove";
+  font-family: var(--special-font);
   font-weight: 400;
   font-size: 1rem;
   padding: 5px 0;
@@ -201,7 +194,7 @@ nav li a {
   color: white;
   text-decoration: none;
   font-size: 1.4rem;
-  font-family: "nove";
+  font-family: var(--special-font);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 5px 0 #000;
   transition: all 0.2s ease-in-out;
@@ -301,7 +294,7 @@ nav li:hover {
   line-height: 24px;
   color: #fff;
   background-color: #ea6d7c;
-  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  font-family: var(--primary-font);
 }
 
 .highrise-footer hr {
@@ -316,7 +309,7 @@ nav li:hover {
 .highrise-footer h6 {
   color: #fff;
   font-size: 16px;
-  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  font-family: var(--primary-font);
   font-weight: 600;
   text-transform: uppercase;
   margin-top: 5px;
@@ -471,7 +464,6 @@ section.imgBox {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
 }
 
 section.imgBox:before {
@@ -539,7 +531,7 @@ section.imgBox h2 {
 }
 
 .about-section h2 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--primary-font);
   font-weight: 600;
   padding: 2% 1%;
   font-size: 40px;
@@ -548,7 +540,7 @@ section.imgBox h2 {
 }
 .about-section p {
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--primary-font);
   text-align: center;
   font-weight: 600;
   font-size: 18px;
@@ -606,7 +598,7 @@ section.imgBox h2 {
   text-align: center;
   font-weight: 600 !important;
   font-size: 35px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--primary-font);
 
   padding: 2% 1%;
 }
@@ -616,7 +608,7 @@ section.imgBox h2 {
   text-align: center;
   font-weight: 600;
   font-size: 18px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--primary-font);
 
   padding: 2% 1%;
   width: 92%;
@@ -645,9 +637,41 @@ section.imgBox h2 {
   background-repeat: repeat-y;
 }
 
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.pagination {
+  margin-bottom: 2%;
+}
+
+.page-link {
+  color: var(--primary-color) !important;
+  border: none !important;
+  background-color: #f57309 !important;
+}
+
+.page-link:hover {
+  transform: none;
+}
+
+.event-seperator {
+  margin: 40px 0;
+}
+
+.tilt {
+  transform-style: preserve-3d;
+}
+
 .eventpage-row {
   padding: 1% 2%;
-  margin: 2% 0;
+  width: 100%;
+  display: flex;
+
   /* display: flex;
   align-items: center;
   justify-content: center; */
@@ -662,7 +686,7 @@ section.imgBox h2 {
   /* height: 100%; */
   /* padding: 5% 0; */
   margin: 2% 0%;
-  padding: 5% 2% 5% 10% !important;
+  padding: 3% 2% 3% 10% !important;
   transform: translateZ(25px) rotateX(4.29128deg) rotateY(5deg);
 }
 
@@ -672,13 +696,8 @@ section.imgBox h2 {
   align-items: center !important;
   /* height: 100%; */
   /* padding: 5% 0; */
-
-  padding: 5% 10% 5% 2% !important;
+  padding: 3% 10% 3% 2% !important;
   transform: translateZ(25px) rotateX(4.29128deg) rotateY(5deg);
-}
-
-.tilt {
-  transform-style: preserve-3d;
 }
 
 .event1-info-div {
@@ -688,13 +707,9 @@ section.imgBox h2 {
 .event2-info-div {
   padding: 3% 4%;
   text-align: end;
-  position: relative;
 }
 
 .event-image {
-  /* width: 100%; */
-  min-width: 375px;
-  /* new  */
   max-width: 100%;
   height: auto;
   /* new  */
@@ -706,12 +721,12 @@ section.imgBox h2 {
 
 .event-date {
   font-size: 14px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primary-font);
   font-weight: 700;
 }
 
 .event-name {
-  font-family: "nove";
+  font-family: var(--special-font);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   font-size: 25px;
@@ -740,8 +755,8 @@ section.imgBox h2 {
   position: relative;
   perspective: 200px;
   transform: translateZ(25px) rotateX(4.29128deg) rotateY(5deg);
-  width: 38px;
-  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
   padding: 10px 40px 10px 20px;
   background: linear-gradient(
       to left,
@@ -752,26 +767,34 @@ section.imgBox h2 {
   background-size: 300%;
 
   color: black;
-  font-family: "poppins";
+  font-family: "Montserrat";
   font-weight: 700;
   font-size: 14px;
   line-height: 11px;
   transform: scaleX(0);
-  transition: 0.5s ease-out;
+  transition: 0.3s ease-out;
 }
 
-#event-details-link:hover {
+#event-details-link:hover,
+#event-details-link:focus {
   background-position: left;
+  padding: 10px 30px 10px 30px;
 }
 
-#event-details-link:hover span {
+#event-details-link:hover span,
+#event-details-link:focus span {
   transform: translateX(50px);
+}
+
+#event-details-link:hover .event-arrow,
+#event-details-link:focus .event-arrow {
+  transform: translateX(5px);
 }
 
 .event-arrow {
   width: 15px;
   height: 15px;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-bottom: 1px;
   /* position: absolute;
   top: 185px;
@@ -914,10 +937,48 @@ section.imgBox h2 {
   justify-content: center;
   align-items: center;
   height: max-content;
+  padding-bottom: 10%;
 }
 
 .ticketpage-description {
-  width: 55vw;
+  width: 45vw;
+  text-align: left;
+}
+
+.ticketpage-description p {
+  /* margin: 2% 0%; */
+  padding: 2% 2%;
+  color: black;
+}
+
+.buy-tickets-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  /* position: relative; */
+  /* top: -980px; */
+  position: sticky;
+  bottom: -10px;
+  padding-bottom: 2%;
+}
+
+.buy-tickets-link {
+  width: 65vw;
+  background: white;
+  color: var(--primary-color);
+  /* border: 10px solid rgb(96, 132, 209); */
+  text-align: center;
+  line-height: 80px;
+  height: 80px;
+  font-family: var(--primary-font);
+  font-size: 18px;
+  letter-spacing: 3px;
+
+  font-weight: 700;
+  border-radius: 4px;
+  /* position: sticky;
+  top: -980px; */
+  /* right: auto; */
 }
 
 .ticketpage-map {
@@ -926,8 +987,13 @@ section.imgBox h2 {
   grid-column-start: 2;
   grid-column-end: 11; */
   display: flex;
-  justify-content: center;
+  flex-direction: column !important;
   align-items: center;
+}
+
+.ticketpage-map h2 {
+  width: 100%;
+  text-align: start;
 }
 
 .ticketpage-payment {
@@ -936,23 +1002,29 @@ section.imgBox h2 {
   grid-column-start: 2;
   grid-column-end: 11; */
   display: flex;
-
   justify-content: center;
   align-items: center;
-
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
 }
 
 .ticket-button-list {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 65vw;
   margin: 2% 0%;
 }
 
+.ticket-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .ticket-button-list button {
-  width: 45vw;
+  width: 100%;
   padding: 2%;
   height: 100%;
   min-height: 100px;
@@ -967,7 +1039,7 @@ section.imgBox h2 {
   font-size: 12px;
   color: rgb(0, 0, 0);
   margin: 0.5% 0%;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primary-font);
   transition: transform 0.2s ease 0s, box-shadow 0.2s ease 0s;
 }
 
@@ -977,7 +1049,7 @@ section.imgBox h2 {
   left: -1px;
   top: 0px;
   height: 100%;
-  width: 5px;
+  width: 1%;
   background: var(--primary-color);
   opacity: 0;
   transition: all 0.2s ease 0s;
@@ -1033,19 +1105,27 @@ section.imgBox h2 {
   font-weight: 700;
 }
 
-section.ticketpage-content p {
-  margin: 2% 0%;
-  padding: 2% 2%;
-  color: black;
-  text-align: center;
-}
-
 .ticketpage-footer {
   grid-area: f;
   /* grid-column: 1/-1; */
 }
 
 /* TICKETPAGE END */
+
+/* Payment Form */
+
+.payment-modal {
+  background-color: var(--tertiary-color) !important;
+  /* position: relative;
+
+  bottom: 0; */
+}
+.MuiDialog-paper {
+  margin: 0 !important;
+}
+.MuiDialog-paperWidthSm {
+  max-width: 100vw !important;
+}
 
 /* -------- LINEUP --------- */
 
@@ -1068,7 +1148,7 @@ section.ticketpage-content p {
   color: #66b2f9;
   text-decoration: none;
   font-size: 32px;
-  font-family: "nove";
+  font-family: var(--special-font);
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
     2px 10px 0 #000;
   margin: 0 0 0 0;
@@ -1091,13 +1171,12 @@ section.ticketpage-content p {
 
 /* -------- Contact --------- */
 
-.contact-wrapper {
-  margin-top: 100px;
-}
 .contact-background {
+  margin-top: 100px;
   height: 100%;
   width: 100vw;
   background-image: url("./images/background-lineup.svg");
+  background-repeat: repeat-y;
 }
 .contact-container {
   padding-top: 2%;
@@ -1105,12 +1184,10 @@ section.ticketpage-content p {
 }
 
 .contact-form {
-  padding: 0 2% 2% 2%;
   overflow: hidden;
   position: relative;
-  width: 50%;
-  margin-left: 25%;
-  margin-top: 2%;
+  min-width: 400px;
+  margin-top: 4%;
 }
 
 .contact-us h1 {
@@ -1120,7 +1197,7 @@ section.ticketpage-content p {
   margin-bottom: 1.5%;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  font-family: var(--primary-font);
   text-align: center;
 }
 
@@ -1132,7 +1209,7 @@ section.ticketpage-content p {
   /* margin-bottom: -1%; */
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  font-family: var(--primary-font);
   text-align: center;
 }
 
@@ -1276,10 +1353,11 @@ section.ticketpage-content p {
   align-items: center;
   margin: 13% auto;
   height: 60px;
-  width: 200px;
+  width: 150px;
+  min-width: 150px;
   cursor: pointer;
   transition: 15s;
-  width: 20%;
+
   outline: none;
   border: 1px solid white;
   background-color: #ea6d7c;
@@ -1296,27 +1374,31 @@ section.ticketpage-content p {
   font-weight: 600;
 }
 
-.contact-button p {
+.contact-button span {
   margin: 0;
   margin-left: 5px;
 }
 
 .contact-button:hover {
   transform: scale(1.1);
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.3s;
 }
 
 .contact-button svg {
   position: absolute;
   top: 13px;
-  right: 25px;
+  right: 40px;
   height: 30px;
   width: auto;
-  transition: transform 0.15s;
+  transition: transform 0.2s ease-out;
 }
 
 .contact-button:hover svg {
   transform: rotate(10deg);
+}
+
+.contact-button:active svg {
+  transform: translateY(-16px) translateX(45px);
 }
 
 .contact-button svg path {
@@ -1329,39 +1411,11 @@ section.ticketpage-content p {
 .faq-wrapper {
   margin-top: 100px;
   /* background-color: var(--tertiary-color); */
+  /* background-color: #faac66; */
   background-image: url("./images/background-lineup.svg");
   background-repeat: repeat-y;
   height: max-content;
 }
-
-/*  
-.faq-background {
-  /* background-image: url(./images/blueBackground.jpeg); */
-/* background-color:  rgba(112,208,204, 0.6); */
-/* background-color: rgb(249,172,102); */
-/*  
-  height: auto;
-  width: auto;
-  background-image: url("./images/shapes.svg");
-
-  background-size: contain;
-  background-repeat: repeat-x;
-  background-position-y: -150px;
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-/*  
-}
-
-.faq-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  justify-content: center;
-}
-*/
 
 /* .faq-background {
   /* background-image: url(./images/blueBackground.jpeg); */
@@ -1421,13 +1475,13 @@ section.ticketpage-content p {
 
 .faq-box p {
   color: var(--grayishBlue);
-  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  font-family: var(--primary-font);
 }
 
-.faq-contianer h2 {
+h2 {
   color: hsl(234, 12%, 34%);
   font-weight: 600;
-  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  font-family: var(--primary-font);
 }
 
 .faq-dropdown {
@@ -1448,8 +1502,7 @@ section.ticketpage-content p {
   color: white;
   font-weight: 600 !important;
   font-size: 15px;
-  font-family: "Poppins", sans-serif !important;
-  font-family: "Poppins-semibold", "Poppins", sans-serif;
+  font-family: var(--primary-font) !important;
 }
 
 .faq-collapsed-box {
@@ -1462,16 +1515,29 @@ section.ticketpage-content p {
 
 .faq-p {
   color: white;
-  font-family: "Poppins", sans-serif !important;
+  font-family: var(--primary-font);
   font-size: 10px;
   padding: 5px 20px;
 }
 
-.faq-wrapper > .MuiAccordionSummary-content.Mui-expanded {
+.MuiAccordionSummary-content.Mui-expanded {
   margin: 20px 0 0 5px !important;
 }
+/* 
+.MuiPaper-root {
+  border-radius: 15px;
+  transition: 0.45s;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  /* background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%); */
 
-.faq-wrapper > .MuiPaper-root {
+/* background-color: rgba(149,69,79, 0.7) !important; */
+/* height: 100%; 
+  width: 100%;
+} 
+*/
+
+.faq-collapsed-box {
   border-radius: 15px;
   transition: 0.45s;
   position: absolute;
@@ -1482,11 +1548,11 @@ section.ticketpage-content p {
   width: 100%;
 }
 
-.faq-wrapper > .MuiIconButton-root {
+.MuiIconButton-root {
   color: #fff !important;
 }
 
-.faq-wrapper .MuiAccordionDetails-root {
+.MuiAccordionDetails-root {
   padding: 20px 48px 45px;
 }
 
@@ -1507,7 +1573,7 @@ section.ticketpage-content p {
   position: absolute;
 }
 
-.faq-wrapper > .makeStyles-heading-7 {
+.makeStyles-heading-7 {
   font-size: 1.2375rem !important;
   flex-basis: 100% !important;
   font-weight: bold !important;
@@ -1520,15 +1586,56 @@ section.ticketpage-content p {
   background-color: black;
 }
 
-/* EVENTS PAGE */
+/* END OF FAQS */
 
-/* .eventsList {
-  width: auto;
+/* ACCOUNT PAGE */
+.account-wrapper {
+  margin-top: 100px;
+  height: 100%;
+  width: 100vw;
+  /* overflow: hidden; */
+  /* overflow: scroll; */
+  background-image: url("./images/background-lineup.svg");
+  background-repeat: repeat-y;
+}
+
+.profile-img {
+  width: 50%;
+  max-width: 400px;
   height: auto;
+  border-radius: 50%;
+  border: 5px solid black;
+}
+
+.profile-header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-} */
+}
+
+.profile-name {
+  text-transform: capitalize;
+  font-family: var(--primary-font);
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.user-details-container {
+  width: 100vw;
+  padding: 2% 5%;
+}
+.user-details-container h3 {
+  font-family: var(--primary-font);
+  font-size: 2em;
+  font-weight: 600;
+
+  margin-bottom: 2%;
+}
+.user-details-list {
+  list-style-type: none;
+  padding-inline: 0px;
+}
 
 @media (min-width: 480px) {
   .faq-list li h3 {

@@ -34,11 +34,11 @@ const highriseLogo = "../images/highriseLogo(cropped).png";
 // Get latitude & longitude from address.
 const AnyReactComponent = ({ highriseLogo }) => (
   <div>
-    <img
+    {/* <img
       src={highriseLogo}
       className="YOUR-CLASS-NAME"
       style={{ height: "auto", width: "100%" }}
-    />
+    /> */}
     <LocationOnIcon />
   </div>
 );
@@ -49,7 +49,7 @@ class MapContainer extends Component {
       lat: 51.46067,
       lng: -2.58112,
     },
-    zoom: 16,
+    zoom: 14,
   };
   state = {
     location: {},
@@ -79,8 +79,8 @@ class MapContainer extends Component {
   }
   render() {
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: "60vh", width: "80vw" }}>
+      // Important! Always se the container height explicitly
+      <div style={{ height: "55vh", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
           defaultCenter={this.props.center}

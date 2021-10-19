@@ -1,30 +1,8 @@
-import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { withRouter } from "react-router-dom";
 import FAQDropdown from "../components/FAQDropdown";
-import patterns from "../images/shapestwo.svg";
-import Footer from "../components/Footer";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: 180,
-  },
-  container: {
-    display: "flex",
-  },
-  paper: {
-    margin: theme.spacing(1),
-  },
-  svg: {
-    width: 100,
-    height: 100,
-  },
-  polygon: {
-    fill: theme.palette.common.white,
-    stroke: theme.palette.divider,
-    strokeWidth: 1,
-  },
-}));
+import backgroundShapes from "../images/shapesOne.svg";
+import backgroundShapesTwo from "../images/shapesThree.svg";
 
 const FAQData = [
   {
@@ -102,9 +80,7 @@ const FAQData = [
   },
 ];
 
-const FAQs = (props) => {
-  const classes = useStyles();
-
+const FAQs = () => {
   const getQuestions = () => {
     return FAQData.map((obj) => {
       return <FAQDropdown question={obj.question} answer={obj.answer} />;
@@ -113,19 +89,16 @@ const FAQs = (props) => {
 
   return (
     <>
-      <div class="faq-wrapper">
-        <div class="faq-background">
-          <div className="faq-container">
-            {/* <div className="patterns-one">
-            {/* <img src={patterns} alt="patterns" /> */}
-            {/* </div> */}
-            {getQuestions()}
-            {/* <div className="patterns-two">
-                <img src={patterns} alt="patterns" />
-            </div> */}
-          </div>
+      <div className="faq-wrapper">
+        <div className="shapes-one">
+          <img className="bg" src={backgroundShapes} />
         </div>
-        {/* <div class="footer">FOOTER</div> */}
+        <div className="shapes-two">
+          <img className="bg" src={backgroundShapesTwo} />
+        </div>
+        <div className="faq-background">
+          <div className="faq-container">{getQuestions()}</div>
+        </div>
       </div>
     </>
   );

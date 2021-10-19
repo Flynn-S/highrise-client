@@ -8,7 +8,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "80%",
+    width: "60%",
     padding: "2% 0%",
   },
   heading: {
@@ -31,21 +31,22 @@ const FAQDropdown = (props) => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className="faq-dropdown">
       <Accordion
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
+        className="faq-collapsed-box"
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography className={classes.heading}>{props.question}</Typography>
+          <Typography className="faq-heading">{props.question}</Typography>
           {/* <Typography className={classes.secondaryHeading}>I am an accordion</Typography> */}
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{props.answer}</Typography>
+          <Typography className="faq-p">{props.answer}</Typography>
         </AccordionDetails>
       </Accordion>
     </div>

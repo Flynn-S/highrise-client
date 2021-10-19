@@ -31,15 +31,6 @@ export default function Section2() {
             - IMMERSIVE VISUALS - LIGHT ART - HALLOWEEN GAMES - STREET FOOD -
             DRAUGHT BEER - COCKTAILS
           </h2>
-          {/* <p>
-        As part of the Highrise x TID Weekend Festival we bring to you a Sunday packed full of vibes. Two local sounds meet in the arena!
-        The Bristol veterans
-        JAH LOKKO SOUNDSYSTEM
-        Meet
-        The New-Skool
-        GREEN KING SOUNDSYSTEM
-        Both sounds will bring 8 scoops each and fill the place with roots reggae vibrations. 
-        </p> */}
         </Col>
 
         <Col sm={12} md={6} className="gallery-col">

@@ -6,8 +6,29 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { CardElement } from "@stripe/react-stripe-js";
 
-export default function PaymentModal() {
+const CARD_OPTIONS = {
+  iconStyle: "solid",
+  style: {
+    base: {
+      iconColor: "#000",
+      color: "#000",
+      fontWeight: 500,
+      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+      fontSize: "16px",
+      fontSmoothing: "antialiased",
+      ":-webkit-autofill": { color: "#ea6d7c" },
+      "::placeholder": { color: "#ea6d7c" },
+    },
+    invalid: {
+      iconColor: "#ea6d7c",
+      color: "#ea6d7c",
+    },
+  },
+};
+
+export default function PaymentModal(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -19,39 +40,41 @@ export default function PaymentModal() {
   };
 
   return (
-    <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-      >
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Subscribe
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+    <Dialog
+      fullWidth={true}
+      open={props.open}
+      onClose={handleClose}
+      aria-labelledby="form-dialog-title"
+    >
+      <DialogTitle id="form-dialog-title" className="payment-modal">
+        Purchase Tickets
+      </DialogTitle>
+      <DialogContent className="payment-modal">
+        <DialogContentText>
+          Please enter your card details to complete purchase of your tickets.
+        </DialogContentText>
+        <form onSubmit={props.handleStripeSubmit}>
+          <fieldset className="FormGroup">
+            <div className="FormRow">
+              <CardElement options={props.CARD_OPTIONS} />
+            </div>
+          </fieldset>
+          {/* <button>Pay Now</button> */}
+        </form>
+      </DialogContent>
+      <DialogActions className="payment-modal">
+        <Button onClick={props.handleClose} color="primary">
+          Cancel
+        </Button>
+        <Button
+          // disabled={processing || disabled || succeeded}
+          onClick={props.handleStripeSubmit}
+          color="primary"
+        >
+          {/* <span>{processing ? <p>Processing</p> : "Pay Now"}</span> */}
+          Pay Now
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 }

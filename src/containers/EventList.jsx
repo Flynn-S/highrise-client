@@ -16,14 +16,13 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 const EventList = (props) => {
   const [eventsData, setEventsData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [eventsPerPage] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
 
   const fetchEvents = async () => {
     try {
-      setIsLoading(true);
       const events = await axios(`${process.env.REACT_APP_API_URL}/events`, {
         withCredentials: true,
         params: {
@@ -36,7 +35,6 @@ const EventList = (props) => {
       setIsLoading(false);
     } catch (error) {
       console.log(error);
-      setIsLoading(false);
     }
   };
 
@@ -53,7 +51,7 @@ const EventList = (props) => {
     //   });
     fetchEvents();
     console.log(eventsData);
-  }, []);
+  }, [query]);
 
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;

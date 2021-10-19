@@ -63,12 +63,10 @@ const SignInSide = (props) => {
       });
       const data = await resp.json();
       if (resp.ok) {
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("isLoggedIn", "true");
         setLoading({ loading: false });
         props.history.push("/home");
       } else {
-        console.log(data);
-
         setError(true);
         setErrorMessage(data.error);
       }

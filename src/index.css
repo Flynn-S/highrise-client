@@ -36,7 +36,7 @@ a:-webkit-any-link :active {
   text-decoration: none !important;
 }
 
-body {
+p {
   font-family: var(--primary-font);
 }
 
@@ -637,6 +637,10 @@ section.imgBox h2 {
   background-repeat: repeat-y;
 }
 
+.event-search-group {
+  z-index: 0;
+}
+
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:active,
@@ -833,6 +837,16 @@ section.imgBox h2 {
   background-repeat: repeat-y;
 }
 
+.event-lineup-container {
+  width: 65vw !important;
+}
+
+.event-details-h2 {
+  font-family: "nove";
+  color: black;
+  text-decoration: underline !important;
+}
+
 /* TICKET PAGE */
 
 #loading-icon {
@@ -937,7 +951,7 @@ section.imgBox h2 {
   justify-content: center;
   align-items: center;
   height: max-content;
-  padding-bottom: 10%;
+  padding-bottom: 2%;
 }
 
 .ticketpage-description {
@@ -983,6 +997,7 @@ section.imgBox h2 {
 
 .ticketpage-map {
   grid-area: m;
+  width: 65vw !important;
   /* grid-column: span 8;
   grid-column-start: 2;
   grid-column-end: 11; */

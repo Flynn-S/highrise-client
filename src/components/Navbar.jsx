@@ -2,15 +2,41 @@ import React, { useState } from "react";
 
 import Button from "@material-ui/core/Button";
 
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 // #f44336
 
 import "../index.css";
 
-export default function Navbar({ links }) {
+const Navbar = (props) => {
   const [isOpen, setOpen] = useState(false);
-  // const [showNav, setChecked] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedin] = useState(
+    localStorage.getItem("isLoggedIn")
+  );
+
+  const handleLogOut = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const resp = await fetch(`${process.env.REACT_APP_API_URL}/logout`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      const data = await resp.json();
+      console.log(data);
+      localStorage.setItem("isLoggedIn", "false");
+      setIsLoggedin(localStorage.getItem("isLoggedIn"));
+      setLoading(false);
+      props.history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="nav-container">
       <nav className="menu-wrapper">
@@ -31,7 +57,7 @@ export default function Navbar({ links }) {
         </div>
 
         <ul className={`menu ${isOpen ? "showNav" : ""}`}>
-          {links.map((link) => (
+          {props.links.map((link) => (
             <li>
               <Link key={link} to={"/" + link}>
                 {link === "line-up" ? "LINE UP" : link}
@@ -39,19 +65,21 @@ export default function Navbar({ links }) {
             </li>
           ))}
           <li>
-            {/* <Button
+            <Button
               variant="contained"
               className="cart-btn"
-              startIcon={<ShoppingCartIcon />}
               style={{
                 fontFamily: "nove",
                 color: "black",
                 background: "#ffe415",
                 border: "1px solid black",
               }}
+              type="submit"
+              onClick={isLoggedIn ? handleLogOut : props.history.push("/")}
             >
-              <span id="cart-label">{user ? 'Sign Out' : 'Sign In'}</span>
-            </Button> */}
+              <span id="cart-label"></span>
+              {isLoggedIn ? "Sign Out" : "Sign In"}
+            </Button>
 
             {/* <Link to={!user && "/login"} className="login-link-button">
               <div onClick={handleAuthenticaton}>
@@ -74,4 +102,6 @@ export default function Navbar({ links }) {
       </nav>
     </div>
   );
-}
+};
+
+export default withRouter(Navbar);

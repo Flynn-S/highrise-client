@@ -68,7 +68,6 @@ export default function TicketSection(props) {
           console.log("Successful payment");
           setProcessing(false);
           setSucceeded(true);
-
           setSuccessOpen(true);
         }
       } catch (error) {
@@ -84,7 +83,7 @@ export default function TicketSection(props) {
   return (
     <section className="ticketpage-payment container">
       <div className="ticket-button-list">
-        <h2>Select a ticket</h2>
+        <h2 className="event-details-h2">Select a ticket</h2>
         <div className="ticket-button-container">
           <button type="button" disabled>
             <div className="ticket-labels">

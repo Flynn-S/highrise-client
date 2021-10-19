@@ -112,7 +112,16 @@ const EventDetails = (props) => {
               </div>
             </section>
             <section className="ticketpage-map container">
-              <h2>Location</h2>
+              <div className="event-lineup-container">
+                <h2 className="event-details-h2">Line Up</h2>
+                <ul className="lineup-list">
+                  {gitData.eventDetails.lineUp.map((artist, index) => {
+                    return <li key={index}>{artist}</li>;
+                  })}
+                </ul>
+                <h2 className="event-details-h2">Location</h2>
+              </div>
+
               <MapContainer location={`${gitData.eventDetails.location}`} />
             </section>
 

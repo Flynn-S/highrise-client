@@ -36,8 +36,8 @@ const AnyReactComponent = ({ highriseLogo }) => (
   <div>
     {/* <img
       src={highriseLogo}
-      className="YOUR-CLASS-NAME"
-      style={{ height: "auto", width: "100%" }}
+      className="map-icon"
+      style={{ height: "auto", width: "10%" }}
     /> */}
     <LocationOnIcon />
   </div>
@@ -80,7 +80,7 @@ class MapContainer extends Component {
   render() {
     return (
       // Important! Always se the container height explicitly
-      <div style={{ height: "55vh", width: "100%" }}>
+      <div style={{ height: "55vh", width: "65vw" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
           defaultCenter={this.props.center}

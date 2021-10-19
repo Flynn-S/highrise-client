@@ -5,7 +5,6 @@ import { AnimatePresence } from "framer-motion";
 
 import "./App.css";
 import Landing from "./pages/registration/LandingFunction";
-import Login from "./pages/registration/Login";
 import Register from "./pages/registration/Register";
 import Homepage from "./pages/Homepage";
 import Account from "./pages/Account";

@@ -6,7 +6,9 @@ export default function Account() {
   return (
     <>
       <Container fluid className="account-wrapper">
-        <UserProfile />
+        <Row className="account-row">
+          <UserProfile />
+        </Row>
       </Container>
     </>
   );

@@ -5,7 +5,7 @@ const Lineup = (props) => {
   return (
     <div className="lineup-wrapper">
       <div className="lineup-background">
-        <div className="lineup-container">
+        <div className="container">
           <ul className="lineup-list">
             <li>Mungo's Hi Fi</li>
             <li>Break</li>

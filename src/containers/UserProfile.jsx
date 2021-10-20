@@ -36,7 +36,7 @@ const UserProfile = () => {
         </div>
       )}
       {accountData && (
-        <Row className="d-flex justify-content-between">
+        <>
           <Col xs={12} className="d-flex justify-content-center">
             <img
               className="profile-img"
@@ -54,18 +54,17 @@ const UserProfile = () => {
               </div>
               <div className="user-details-container">
                 <h3>Account Details</h3>
+                <p>Username: {accountData.user.username}</p>
 
                 <ul>
                   {accountData.user.tickets.map((ticket) => {
                     <li>{ticket._id}</li>;
                   })}
                 </ul>
-
-                <p>hello boyo</p>
               </div>
             </div>
           </Col>
-        </Row>
+        </>
       )}
     </>
   );

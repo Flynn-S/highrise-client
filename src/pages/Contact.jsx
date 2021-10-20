@@ -15,10 +15,13 @@ const Contact = () => {
   const [messageContent, setMessageContent] = useState("");
   const [subject, setSubject] = useState("Subject: Contact Form Submission");
   const [status, setStatus] = useState("Send");
+  const [isLoading, setIsLoading] = useState(true);
+  const [messageSent, setMessageSent] = useState(false);
 
   const EmailData = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
+    setIsLoading(true);
     try {
       let response = fetch(`${process.env.REACT_APP_API_URL}/contact`, {
         credentials: "include",
@@ -31,10 +34,11 @@ const Contact = () => {
           messageContent,
         }),
       });
-      setStatus("Send");
 
       const result = await response;
-      alert(result.status);
+      setStatus("Send");
+      setMessageSent(true);
+      setIsLoading(false);
       setMessageContent("");
       setName("");
       setEmail("");
@@ -133,7 +137,11 @@ const Contact = () => {
                 value={messageContent}
                 onChange={(e) => setMessageContent(e.target.value)}
               ></textarea>
-              <button className="contact-button" type="submit">
+              <button
+                className="contact-button"
+                type="submit"
+                style={messageSent ? { backgroundColor: "green" } : null}
+              >
                 <span>{status}</span>
                 <svg
                   version="1.1"

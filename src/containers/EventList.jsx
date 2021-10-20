@@ -27,11 +27,6 @@ const EventList = (props) => {
         `${process.env.REACT_APP_API_URL}/events?${query}`,
         {
           withCredentials: true,
-          // params: {
-          //   name: query,
-          //   eventsPerPage: eventsPerPage,
-          //   currentPage: currentPage,
-          // },
         }
       );
       setEventsData(events.data);

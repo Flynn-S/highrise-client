@@ -97,7 +97,12 @@ const FAQs = () => {
           <img className="bg" src={backgroundShapesTwo} />
         </div>
         <div className="faq-background">
-          <div className="faq-container">{getQuestions()}</div>
+          <div className="faq-container">
+            <h2 className="event-details-h2 pt-5">
+              Frequently Asked Questions
+            </h2>
+            {getQuestions()}
+          </div>
         </div>
       </div>
     </>

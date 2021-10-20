@@ -52,17 +52,11 @@ const UserProfile = () => {
                 </h1>
                 {accountData.user.userType === "admin" ? <h3>Admin</h3> : null}
               </div>
-              <div className="user-details-container d-flex justify-content-center">
-                <h3>Account Details:</h3>
-                <ul className="user-details-list">
-                  <li>
-                    <p>Email</p>
-                    <p>{accountData.user.email}</p>
-                  </li>
-                </ul>
+              <div className="user-details-container">
+                <h3>Account Details</h3>
 
                 <ul>
-                  {accountData.user.tickets.forEach((ticket) => {
+                  {accountData.user.tickets.map((ticket) => {
                     <li>{ticket._id}</li>;
                   })}
                 </ul>

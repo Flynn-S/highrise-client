@@ -23,12 +23,14 @@ const EventList = (props) => {
 
   const fetchEvents = async () => {
     try {
-      const events = await axios(
-        `${process.env.REACT_APP_API_URL}/events?${query}`,
-        {
-          withCredentials: true,
-        }
-      );
+      const events = await axios(`${process.env.REACT_APP_API_URL}/events`, {
+        withCredentials: true,
+        params: {
+          name: query,
+          eventsPerPage: eventsPerPage,
+          currentPage: currentPage,
+        },
+      });
       setEventsData(events.data);
       setIsLoading(false);
     } catch (error) {
